@@ -1,0 +1,113 @@
+/* personalCenter */
+.top {
+  display: flex;
+  padding: 0rpx 34rpx; 
+  height: 194rpx;
+  align-items:center;
+  background: linear-gradient(to right,#43ADFF,#3B84F7);
+  color: #fff;
+  font-size: 44rpx;
+}
+.personalPhoto {
+  width: 120rpx;
+}
+.personalName {
+  flex: 1 1 120rpx;
+  margin-left: 24rpx; 
+}
+.photo {
+  width: 120rpx;
+  border-radius:50%; 
+}
+.orderInfo {
+  padding: 30rpx;
+}
+.allorder,.address view,.service view {
+  height: 100rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items:center;
+}
+.allorder {
+  margin-bottom: 30rpx;
+}
+.allorder text {
+  font-size: 36rpx;
+  font-weight: 600;
+}
+.more text {
+  font-size: 28rpx;
+  font-weight: normal;
+  color: #999;
+  vertical-align: middle;
+  margin-right: 10rpx;
+}
+.arrowRight {
+  width: 32rpx;
+  height: 32rpx;
+  vertical-align: middle;
+}
+.orderTab {
+  display: flex;
+  justify-content:space-around;
+  text-align: center;
+}
+.orderTab text {
+  display: block;
+  font-size: 22rpx;
+}
+.waitPay image,.waitSend image,.afterSale image,.waitReceive image{
+  width: 52rpx;
+  height: 52rpx;
+}
+.waitPay,.waitSend,.waitReceive,.afterSale {
+  position: relative;
+}
+.waitPay .num,.waitSend .num,.waitReceive .num,.afterSale .num {
+  position: absolute;
+  top: -16rpx;
+  right: -16rpx;
+  width: 24rpx;
+  height: 24rpx;
+  line-height: 24rpx;
+  text-align: center;
+  color: #fff;
+  background: #F7442C;
+  border-radius: 50%;
+}
+.line {
+  display: flex;
+  padding-left: 40rpx;
+}
+.line text {
+  display: inline-block;
+  width: 32rpx;
+}
+.line view {
+  flex: 1;
+  border-bottom:1rpx solid  #E7E7E7;
+  margin-left: 30rpx;
+}
+.address,.service {
+  padding-left: 40rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.address image{
+  width: 32rpx;
+  height: 37rpx;
+}
+.service image {
+  width: 32rpx;
+  height: 32rpx;
+}
+.address view,.service view {
+  flex: 1;
+  border-bottom:1rpx solid  #E7E7E7;
+  padding-right: 30rpx;
+  margin-left: 30rpx;
+  font-size: 32rpx;
+  color: #323232;
+} 
+ 

@@ -1,0 +1,36 @@
+<!--首页商品列表-->
+<view class="banner">
+  <image class="banner-image" src="https://ganjie-oss-dev.oss-cn-beijing.aliyuncs.com/statics/images/wxBanner.jpg"/> 
+  <navigator url="../../areaCode/areaCode" hover-class="navigator-hover">
+    <view class="areacode">
+      <text class="address">{{address.name}}</text>
+      <image src="../../../img/tabBar/pull_down.png" mode="aspectFill"/> 
+    </view>
+  </navigator>
+</view> 
+<view class="board-list">
+  <block wx:key="*this" wx:for="{{ listData }}">
+    <!-- <navigator url="../goodsDetail/goodsDetail" hover-class="navigator-hover"> -->
+      <view bindtap='jumpGoodDetail' data-text="{{ item }}" class="board-item">
+        <view class="board-image">
+          <image src="{{ item.img }}" mode="aspectFill"/>
+        </view>
+        <view class="board-info">
+          <text class="board-info-name">{{ item.name }}</text>
+          <text class="board-info-sellPoint">{{ item.sellPoint }}</text>
+          <view class="board-info-sku-box">
+            <block wx:key="*this" wx:for="{{ item.address }}">
+              <text class="board-info-sku">{{ item }}</text>
+            </block>
+          </view>
+          <view class="board-info-priceOrSales">
+            <text class="board-info-price"><text>￥</text>{{ item.price }}</text>
+            <text class="board-info-sales">销量 {{ item.sales }}</text>
+          </view>
+        </view>
+      </view>
+    <!-- </navigator> -->
+  </block>
+</view>
+
+

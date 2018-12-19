@@ -1,0 +1,26 @@
+
+.header{
+	position:absolute;
+	top:186rpx;
+	left:300rpx;
+	height:160rpx;
+	width:160rpx;
+	border-radius:50%;
+
+}
+
+button{
+	height: 80rpx;
+	width: 200rpx;
+	position: absolute;
+	line-height: 80rpx;
+	font-size: 30rpx;
+	left:280rpx;
+	display: none;
+
+}
+
+
+.showFlag{
+	display: block !important;
+}

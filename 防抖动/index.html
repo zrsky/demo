@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>防抖动</title>
+</head>
+<body>
+	<input id="text" type="text" name="">
+</body>
+</html>
+<script>
+	// var text = document.getElementById('text');
+	// // text.addEventListener('input',function(){debounce(fn,1000)},false)
+	// var timer;
+	// function debounce(fn,time) {
+	// 	clearTimeout(timer);
+	// 	timer = setTimeout(fn,time);
+	// }
+
+	// function fn() {
+	// 	console.log('发送请求');
+	// }
+
+	// //参数复用  提前返回   延迟执行
+
+	// var throttle = function(fn, interval) {
+	// 	var _self = fn,  //保存时需要被执行的函数引用
+	// 		timer = null, //定时器
+	// 		firstTime = false; //是否是第一次调用
+	// 	return function(){
+	// 		var args = arguments,
+	// 		_me = this;
+
+	// 		if(firstTime) {
+	// 			_self.apply(_me, args);
+	// 			return firstTime = false;
+	// 		}
+
+	// 		if(timer) {
+	// 			return;
+	// 		}
+
+	// 		timer = setTimeout(function() {
+	// 			clearTimeout(timer);
+	// 			timer = null;
+	// 			_self.apply(_me, args);
+	// 		}, interval || 500)
+	// 	}
+
+	// }
+
+	// text.addEventListener('input',
+	// 	throttle(fn,500)
+	// ,false)
+	
+
+	async function getMailAsync() {
+		var data = 1;
+		return data;
+	}
+
+	async function getMail(callback) {
+		let getValue = await getMailAsync()
+		callback(getValue)
+	}
+
+	function callback(data) {
+		window.export data
+	}
+
+
+	console.log(getMail(callback));
+
+
+
+// 	fetchPromiseValue = () => {
+//     return new Promise(function(resolve, reject) {
+//         resolve({value: 'PromiseReturnValue'});   // Promise 抛出状态值
+//     })
+// };
+
+// handlePromise = async () =>{
+//     let  getValue  = await this.fetchPromiseValue();  // 异步获取 Promise  抛出的状态值
+//     console.log('Promise 的状态值： ',getValue.value);
+// };
+
+// handlePromise();
+</script>

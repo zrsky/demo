@@ -1,0 +1,53 @@
+<!-- refund page -->
+<view class='top fts32' bindtap='chooseSezi'>
+  <view>退款类型</view>
+  <view class='tips'>
+    <text>{{refundType}}</text>
+    <image src='../../../img/common/arrowRight.png' mode='widthFix' class='arrowRight'></image>
+  </view>
+</view>
+<view class='refundMoney fts32'>
+  <text>退款金额</text>
+  <text class='icon money'>¥ <text class='price money'>{{money}}</text></text>
+</view>
+<view class='most'>
+  <text>最多 ¥{{money}}</text>
+</view>
+<view class='refundMoney fts32'>
+  <text>退款原因</text>
+  <text class='palceholder'>请详细描述退款原因</text>
+  <view class="section">
+    <textarea bindblur="bindTextAreaBlur" bindinput="fillNote" maxlength="200"/>
+  </view>
+  <view class='limt'>{{currentNoteLen}}/200</view>
+</view>
+<view class='upLoadPic'>
+  <view class="upLoadTxt fts32">上传凭证</view>
+  <view class='upLoadBox'>
+    <view wx:for="{{url}}" wx:key="{{index}}" class='imgBox'>
+      <image src='{{item}}' mode='aspectFill' ></image>
+      <view class='del' catchtap='del' data-index="{{index}}">
+        <image mode='aspectFill' src='../../../img/common/cancel.png'></image>
+      </view>
+    </view>
+    <view class='upLoad' catchtap='choose' wx:if="{{lenMore}}">
+      <image src='../../../img/common/upLoad.png'></image>
+      <view class='loadingBox' wx:if="{{loading}}">
+        <image src='../../../img/common/loading.gif' class='loading'></image>
+      </view>
+    </view>
+  </view>
+</view>
+<!--隐藏区域  -->
+<view class='maskLayer' wx:if="{{chooseSize}}" bindtap='hideModal'></view>
+<view class='choose' wx:if="{{chooseSize}}" animation='{{animationData}}'>
+  <view class='type'>退款类型</view>
+  <radio-group class="radio-group" bindchange="radioChange" data-type="{{index+1}}">
+    <view wx:for="{{items}}" wx:key="{{index}}" class='radioList'>
+      <view>{{item.value}}</view>
+      <radio value="{{item.value}}" checked="{{item.value==refundType?checked:false}}" color="#1D9DFF"/>
+    </view>
+  </radio-group>
+  <view class='close' bindtap='hideModal'>关闭</view>
+</view>
+<view class='submit' bindtap='commit'>确认提交</view>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>原型模式</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    //原型模式就是通过克隆创建对象的
+
+    var Plane = function(){
+        this.blood = 100;
+        this.attackLevel = 1;
+        this.defenseLevel = 1; 
+    }
+
+    var plane = new Plane();
+    plane.blood = 500;
+    plane.attackLevel = 10;
+    plane.defenseLevel = 7; 
+
+    console.log(plane.__proto__ === Object.prototype)
+    var clonePlane = Object.create(plane);
+
+    // 在不支持Object.create方法的浏览器中
+    Object.create = Object.create || function(obj) {
+        var F = function() {
+            F.prototype = obj;
+        }
+        return new F();
+    }
+
+    
+</script>

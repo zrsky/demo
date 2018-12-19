@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>模块化开发</title>
+</head>
+<body>
+
+</body>
+</html>
+<script src="index.js"></script>
+<script type="text/javascript">
+
+//params [{add:function(){}},{delete:function(){}}]
+	requirejs(["a","b"], function(a,b){
+		console.log(587)
+		a.add();
+		b.delete();
+	})
+</script>

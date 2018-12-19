@@ -1,0 +1,87 @@
+<!-- 顶部退款类型 -->
+<view class='top fts32 pd24'>
+  <view wx:if="{{refundInfo.returnStatus == 1}}">
+    <text class='topTips'>等待商家处理</text>
+    <text class='cutTime'>（还剩{{days}}天{{hours}}小时{{minutes}}分）</text>
+  </view>
+  <view wx:if="{{refundInfo.returnStatus == 3}}">
+    <text class='topTips'>退款失败</text>
+  </view>
+  <view wx:if="{{refundInfo.returnStatus == 2}}">
+    <text class='topTips'>退款成功</text>
+  </view>
+</view>
+<!-- 退款结果 -->
+<view class='tips'>
+  <view class='tipsTxt' wx:if="{{refundInfo.returnStatus == 1}}">您已成功发起退款申请，请耐心等待商家处理</view>
+  <view class='tipsTxt' wx:if="{{refundInfo.returnStatus == 2}}">商家同意退款申请，退款成功！<text class='money'>￥{{refundInfo.buyerPayAmount}}</text>元已按照原打款路径退回。</view>
+  <view class='tipsTxt' wx:if="{{refundInfo.returnStatus == 3}}">商家拒绝您的退款，退款失败</view>
+  <view class='reson' wx:if="{{refundInfo.returnStatus == 1}}">商家同意或超时未处理，您将收到退款</view>
+  <view class='reson' wx:if="{{refundInfo.returnStatus == 3}}">你可以直接联系售后客服处理 <text>客服电话:</text><text class='tel' bindtap='callService'>4000086600</text> </view>
+  <view class='btn' wx:if="{{refundInfo.returnStatus == 1}}">
+    <button class='deit' wx:if="{{refundInfo.returnStatus == 1}}">修改申请</button>
+    <button class='close' wx:if="{{refundInfo.returnStatus == 1}}" bindtap='close'>撤消申请</button>
+  </view>
+</view>
+<!-- 退货地址 -->
+<view class="address mt20" wx:if="{{refundInfo.type == 2}}">
+  <view class='addressText pd24 fts32'>退货地址</view>
+  <view class='addressDetail'>
+    <view class='list'>
+      <view class='label'>收件人</view>
+      <view class='txt'>陈先生</view>
+    </view>
+    <view class='list'>
+      <view class='label'>退货地址</view>
+      <view class='txt'>浙江省丽水市遂昌县龙谷路 A06</view>
+    </view>
+    <view class='list'>
+      <view class='label'>电话</view>
+      <view class='txt'>16737973876</view>
+    </view>
+    <view class='list'>
+      <view class='label'>备注</view>
+      <view class='txt'>不接受申通和到付</view>
+    </view>
+  </view>
+</view>
+<view class='refundInfo mt20'>
+  <view class='addressText pd24 fts32'>退款信息</view>
+  <view class='orderInfo'>
+      <view class='pic'>
+        <image src='{{refundInfo.imgUrl}}' mode='aspectFill'></image>
+      </view>
+      <view class='desc'>
+        <view class='txt'>{{refundInfo.title}}</view>
+        <view class='Standard'>规格: {{refundInfo.standard}} <text>x{{refundInfo.num}}</text></view>
+      </view>
+    </view>
+    <view class='refundReson'>
+      <view class='list'>
+        <view class='label'>退款金额</view>
+        <view class='txt'>¥ {{refundInfo.buyerPayAmount}}</view>
+      </view>
+      <view class='list'>
+        <view class='label'>退款原因</view>
+        <view class='txt'>{{refundInfo.reason}}</view>
+      </view>
+      <view class='list'>
+        <view class='label'>申请时间</view>
+        <view class='txt'>{{refundInfo.gmtCreated}}</view>
+      </view>
+      <view class='list'>
+        <view class='label'>售后编号</view>
+        <view class='txt'>{{refundInfo.refundNo}}</view>
+      </view>
+      <view class='resonPic'>
+        <image src='{{refundInfo.img1}}' mode='aspectFill'></image>
+        <image src='{{refundInfo.img2}}' mode='aspectFill'></image>
+        <image src='{{refundInfo.img3}}' mode='aspectFill'></image>
+      </view>
+    </view>
+</view>
+ <view style='height:100rpx;'></view> 
+<view class='contactBtn' wx:if="{{false}}">
+  <button class='callMerchant'>联系商家</button>
+  <button class='callPlatform'>联系平台</button>
+</view>

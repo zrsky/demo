@@ -1,0 +1,63 @@
+page{
+  background: #F2F5F7;
+}
+.payMoney {
+  height: 140rpx;
+  line-height: 140rpx;
+  text-align: center;
+  color: #F7442C;
+  font-size: 66rpx;
+  background: #fff;
+}
+.rmb {
+  font-size: 32rpx;
+  margin-right: 10rpx;
+}
+.btnGroup {
+  display: flex;
+  padding: 30rpx 100rpx;
+  align-items: center;
+  color: #313131;
+  font-size: 32rpx;
+  background: #fff;
+}
+.btnGroup button {
+  margin: 0;
+  padding: 0;
+  flex: 1;
+  background: #fff;
+}
+.btnGroup text {
+  display: inline-block;
+  width: 2rpx;
+  height: 44rpx;
+  background: #ddd;
+  margin: 0 50rpx;
+}
+.order {
+  display: flex;
+  padding: 42rpx 24rpx;
+  background: #fff;
+}
+.orderPic image{
+  width: 148rpx;
+  height: 148rpx;
+  vertical-align: middle;
+}
+.orderInfo {
+  margin-left: 20rpx;
+}
+.title {
+  font-size: 30rpx;
+  color: #313131;
+}
+.standard {
+  margin-top:30rpx;
+  display: flex;
+  justify-content: space-between;
+  font-size: 24rpx;
+  color: #999;
+}
+.standard .num {
+  color: #333;
+}

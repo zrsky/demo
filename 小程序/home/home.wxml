@@ -1,0 +1,73 @@
+<!--pages/goods/home/home.wxml-->
+<!--首页商品列表-->
+<view class="banner">
+  <image class="banner-image" src="https://ganjie-oss-dev.oss-cn-beijing.aliyuncs.com/mini/image/wxBanner.jpg"/> 
+  <navigator url="../../areaCode/areaCode" hover-class="navigator-hover">
+    <view class="areacode">
+      <text class="address">{{address.name}}</text>
+      <image src="../../../img/tabBar/pull_down.png" mode="aspectFill"/> 
+    </view>
+  </navigator>
+</view> 
+<!-- 分类筛选 -->
+<view class="goods-category">
+  <scroll-view scroll-x class="scroll-header" bindscroll="scroll">
+    <block wx:if="{{result.length >= 7}}" wx:key="*this" wx:for="{{ category }}" wx:for-item="child">
+      <view class="category-wrapper">
+        <block wx:key="*this" wx:for="{{ child }}" wx:for-index="bindex">
+          <view class="category-item" id="{{bindex == 0 ? 'categoryItem' : ''}}" data-text="{{ item }}" data-index="{{ item.index }}" data-id="{{ item.id }}" bindtap='chooseCategory'>
+            <image src="{{ item.imgUrl }}"></image>
+            <view>{{ item.name }}</view>
+          </view>
+        </block>
+      </view>
+    </block>
+    <block wx:if="{{result.length <= 6 }}" wx:key="*this" wx:for="{{ result }}">
+      <view class="category-item" data-text="{{ item }}" data-index="{{ item.index }}" data-id="{{ item.id }}" bindtap='chooseCategory'>
+        <image src="{{ item.imgUrl }}"></image>
+        <view>{{ item.name }}</view>
+      </view>
+    </block>
+  </scroll-view>
+  <view class="progress-wrapper" wx:if="{{result.length !== 6 && result.length > 3 && progress == true}}">
+    <view class="progress-outter">
+      <view class="progress-inner" style="left:{{left<=1 ? 0 : left+'rpx'}}"></view>
+    </view>
+  </view>
+</view>
+<!-- 商品列表 -->
+<view class="board-list">
+  <block wx:key="*this" wx:for="{{ listData }}">
+    <view bindtap='jumpGoodDetail' data-text="{{ item }}" class="board-item">
+      <view class="board-image">
+        <image src="{{ item.img }}" />
+      </view>
+      <view class="board-info">
+        <text class="board-info-name">{{ item.name }}</text>
+        <text class="board-info-sellPoint">{{ item.sellPoint }}</text>
+        <view class="board-info-sku-box">
+          <block wx:key="*this" wx:for="{{ item.address }}">
+            <text class="board-info-sku">{{ item }}</text>
+          </block>
+        </view>
+        <view wx:if="{{ item.template == 0 }}" class="board-info-priceOrSales">
+          <text class="board-info-price"><text>￥</text>{{ item.price }}</text>
+          <text class="board-info-sales">销量 {{ item.sales }}</text>
+        </view>
+        <view wx:if="{{ item.template == 1 }}" class="board-info-priceOrSales">
+          <text style="margin:0;" class="board-info-sales">报名人数 {{ item.sales }}</text>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>  
+<view class="goods-bottom">
+  <block wx:key="index" wx:for="{{ tabBar }}">
+    <view data-text="{{ item }}" data-index="{{ index }}" bindtap='jumgPages'>
+      <image src="{{ item.iconPath }}"></image>
+      <text style="color:{{ item.active ? '#1199E7':'#aaa' }}">{{ item.text }}</text>
+    </view>
+  </block>
+</view>
+
+

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>装饰者模式</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+var name = "zhangrui";
+console.log(this.name.caches)
+	// function Man() {
+	// 	console.log('我是一个自我认为很帅的汉子')
+	// }
+	// Man.prototype = {
+	// 	sayName: function() {
+	// 		console.log("我是zhangrui")
+	// 	},
+	// 	ability: function() {
+	// 		console.log(109)
+	// 	},
+	// 	technology: function() {
+	// 		console.log("我会Web前端开发");
+	// 	}
+	// }
+
+	// //创建装饰器 接受Man对象作为参数
+	// var Decorator = function(man) {
+	// 	this.man = man;
+	// }
+	// Decorator.prototype = {
+	// 	sayName: function() {
+	// 		this.man.sayName();
+	// 	},
+	// 	ability: function() {
+	// 		this.man.ability();
+	// 	},
+	// 	technology: function() {
+	// 		this.man.technology();
+	// 	}
+	// }
+
+	// //接下来我们要为每一个功能创建一个装饰对象 重写原有方法
+	// var ViagraMan = function(man) {
+	// 	Decorator.call(this,man);
+	// 	console.log("获得BUFF能力增强了");
+	// }
+
+	// ViagraMan.prototype = new Decorator(man);
+
+	// ViagraMan.prototype.sayName = function() {
+	// 	console.log("我是有viagra能力而不需要viagra的Derry");
+	// }
+	// ViagraMan.prototype.ability = function() {
+	// 	console.log('能力增强到200')
+	// 	this.man.ability();
+	// }
+
+	// var DNMan = function(man) {
+	// 	Decorator.call(this,man);
+	// 	console.log("获得动脑加成");
+	// }
+
+	// DNMan.prototype = new Decorator(man);
+
+	// DNMan.prototype.sayName = function() {
+	// 	console.log("我是动脑学院Derry");
+	// }
+	// DNMan.prototype.giveLessons = function() {
+	// 	this.man.ability();
+	// 	console.log('欢迎来到动脑学院！')
+	// }
+
+	// var man = new Man();
+	// man.sayName();
+	// man.ability();
+	// man.technology();
+
+	// var viagraMan = new ViagraMan(man);
+	// viagraMan.sayName();
+	// viagraMan.ability();
+	// viagraMan.technology();//装饰器直接使用了原有方法
+
+	//增强了被@的代码的能力，同时不会改变原有的代码
+	//装饰器重写了原有方法
+	//装饰器调用了原有方法并且执行了自己新定义的方法
+	//继承缺点: 1、会导致代码臃肿。2、不灵活。3、需求变更导致的后果成本非常大
+	// 继承： 被增强的对象是固定的。增强的内容也是固定的
+	// 装饰器： 被增强的对象是可以切换的。增强的内容也是固可以定制的。
+</script>

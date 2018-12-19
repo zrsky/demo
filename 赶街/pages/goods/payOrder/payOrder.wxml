@@ -1,0 +1,48 @@
+<!-- 支付 -->
+<view class="order-container">
+  <view class="order-title">
+    <!-- <image class="img-logo" src="../../../img/order/wait.png" /> -->
+    待付款
+  </view>
+  <view class="order-address">
+    <text>{{ userName }} {{ userPhone }}</text>
+    <text>{{ addressName }}</text>
+  </view>
+</view>
+
+<view class="order-container order-goods">
+  <text class="order-second-title">商品信息</text>
+  <view class="order-goods-info">
+    <image src="{{ goodsImgUrl }}" ></image>
+    <view class="order-goods-name">
+      <text>{{ name }}</text>
+      <text>规格：
+       <block wx:for="{{ skuStr }}" wx:key="*this">
+          <text>{{ item.skuName }}</text>
+        </block>
+      </text>
+    </view>
+  </view>
+</view>
+
+<view class="order-container order-goods">
+  <text class="order-second-title">订单信息</text>
+  <view class="order-time">
+    <text>交易编号: {{ tradeNo }}</text>
+  </view>
+</view>
+
+<view style="margin-bottom:120rpx" class="order-container order-goods">
+  <view class="order-just bet">
+    <text>商品总价</text>
+    <text>￥{{ price }}</text>
+  </view>
+  <view class="order-just end">
+    <text>实付款:<text style="color:#F7442C">￥{{ price }}</text></text>
+  </view>
+</view>
+
+<view class="order-submit">
+  <view bindtap='cancelOrder'>取消订单</view>
+  <view bindtap="payOrder">立即支付</view>
+</view>

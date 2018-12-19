@@ -1,0 +1,137 @@
+<view class='title'>
+  <text>个人信息</text>
+</view>
+<view class='form'>
+  <view class='fromList'>
+    <text class='label'>姓名</text>
+    <view>
+      <input placeholder="请输入报名人的姓名" placeholder-class="placeholder" bindblur='getName' bindfocus='hideName'/>
+    </view>
+    <text class='verify' wx:if="{{showName}}">请填写姓名</text>
+  </view>
+  <view class='fromList' wx:if="{{show1}}">
+    <text class='label'>性别</text>
+    <view>
+      <radio-group class="radio-group" bindchange="radioChangeSex">
+        <label class="radio" wx:for="{{sexitems}}" wx:key="{{index}}">
+          <radio value="{{item.name}}" checked="{{item.checked}}" color='#1D9DFF'/>{{item.value}}
+        </label>
+      </radio-group>
+    </view>
+  </view>
+  <view class='fromList' wx:if="{{show3}}">
+    <text class='label'>年龄</text>
+    <view>
+      <input placeholder="请选择" placeholder-class="placeholder" type='number' bindblur='getAge' bindfocus='hideAge'/>
+    </view>
+    <text class='verify' wx:if="{{showAge}}">请填写年龄</text>
+  </view>
+  <view class='fromList'>
+    <text class='label'>手机号</text>
+    <view>
+      <input placeholder="请输入手机号" placeholder-class="placeholder" type='number' bindblur='getPhone' bindfocus='hidePhone'/>
+    </view>
+    <text class='verify' wx:if="{{showPhone}}">{{checkPhone}}</text>
+  </view>
+  <view class='fromList' wx:if="{{show2}}">
+    <text class='label'>身体情况</text>
+    <view>
+      <radio-group class="radio-group" bindchange="radioChangeHealth">
+        <label class="radio" wx:for="{{healthitems}}" wx:key="{{index}}">
+          <radio value="{{item.name}}" checked="{{item.checked}}" color='#1D9DFF'/>{{item.value}}
+        </label>
+      </radio-group>
+    </view>
+  </view>
+  <view class='fromList'>
+    <text class='label'>身份证号</text>
+    <view>
+      <input placeholder="请输入报名人身份证号" placeholder-class="placeholder" type="idcard" bindblur='getIdentity' bindfocus='hideIdentity'/>
+    </view>
+    <text class='verify' wx:if="{{showIdentity}}">{{checkIdentity}}</text>
+  </view>
+  <view class='fromList' wx:if="{{show4}}">
+    <text class='label'>家庭住址</text>
+    <view>
+      <input placeholder="请输入家庭住址" placeholder-class="placeholder" bindblur='getAddress' bindfocus='hideAddress'/>
+    </view>
+    <text class='verify' wx:if="{{showAddress}}">请填写家庭住址</text>
+  </view>
+  <view class='fromList' wx:if="{{show5}}">
+    <text class='label'>备注</text>
+    <view>
+      <input placeholder="请输入其他信息" placeholder-class="placeholder" bindblur='getMark' bindfocus='hideMark'/>
+    </view>
+    <text class='verify' wx:if="{{showMark}}">请填写备注</text>
+  </view>
+</view>
+<view class='title' wx:if="{{show6}}">
+  <text>上传身份证照片</text>
+</view>
+<view class='upLoad' wx:if="{{show6}}">
+  <!-- 上传第一张图 -->
+  <view class='upLoadBox'>
+     <view class='loadImg' wx:if="{{showImgOne}}" catchtap='chooseOneImg'>
+      <image src='{{imgOneUrl}}' mode='aspectFill' ></image>
+      <view class='del' catchtap='delOne'>
+        <image mode='aspectFill' src='../../../img/common/cancel.png'></image>
+      </view> 
+    </view> 
+     <view class='upLoadBtn' catchtap='chooseOneImg' wx:if="{{chooseImgOne}}">
+      <view class='add'>+</view>
+      <view>上传照片</view>
+      <view class='loadingBox' wx:if="{{loadingOne}}">
+        <image src='../../../img/common/loading.gif' class='loading'></image>
+      </view>
+    </view>  
+  </view>
+  <!-- 上传第二张图 -->
+  <view class='upLoadBox'>
+    <view class='loadImg' wx:if="{{showImgTwo}}" catchtap='chooseTwoImg'>
+      <image src='{{imgTwoUrl}}' mode='aspectFill' ></image>
+      <view class='del' catchtap='delTwo'>
+        <image mode='aspectFill' src='../../../img/common/cancel.png'></image>
+      </view> 
+    </view> 
+     <view class='upLoadBtn' catchtap='chooseTwoImg' wx:if="{{chooseImgTwo}}">
+      <view class='add'>+</view>
+      <view>上传照片</view>
+      <view class='loadingBox' wx:if="{{loadingTwo}}">
+        <image src='../../../img/common/loading.gif' class='loading'></image>
+      </view>
+    </view>  
+  </view>
+  <!-- 上传第三张图 -->
+  <view class='upLoadBox'>
+     <view class='loadImg' wx:if="{{showImgThree}}" catchtap='chooseThreeImg'>
+      <image src='{{imgThreeUrl}}' mode='aspectFill' ></image>
+      <view class='del' catchtap='delThree'>
+        <image mode='aspectFill' src='../../../img/common/cancel.png'></image>
+      </view> 
+    </view>  
+     <view class='upLoadBtn' catchtap='chooseThreeImg' wx:if="{{chooseImgThree}}">
+      <view class='add'>+</view>
+      <view>上传照片</view>
+      <view class='loadingBox' wx:if="{{loadingThree}}">
+        <image src='../../../img/common/loading.gif' class='loading'></image>
+      </view>
+    </view>  
+  </view>
+</view>
+<view style='height: 80rpx;'></view>
+<view class='commit' bindtap='commit'>
+  <button>立即报名</button>
+</view>
+<view class="mask" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+
+<view class="modalDlg" wx:if="{{showModal}}">
+    <view class='pic'>
+      <image src="../../../img/common/baoming.png"/>
+    </view>
+    <view class='mt20'>报名成功</view>
+    <view class='mt20'>我们会尽快联系您！</view>
+    <view class='close' bindtap="close">
+      <image src='../../../img/common/guanbi.png'></image>
+    </view>
+    <button class="go" bindtap="go">继续报名</button>
+</view>

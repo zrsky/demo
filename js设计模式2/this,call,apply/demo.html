@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>this,call,apply</title>
+</head>
+<body>
+    <div id="div1">div</div>
+</body>
+</html>
+<script>
+    'use strict'
+    //Function.prototype.call   Function.prototype.apply
+
+//     跟别的语言大相径庭的是，JavaScript 的 this 总是指向一个对象，而具体指向哪个对象是在
+// 运行时基于函数的执行环境动态绑定的，而非函数被声明时的环境。 
+
+
+//丢失this
+
+var obj = {
+    myName: 'seven',
+    getName: function() {
+        console.log(this);  
+    }
+}
+
+var getName2 = obj.getName;
+getName2(); //undefined
+
+
+
+// var getId = document.getElementById;   //getElementId中的this指向了window
+// getId('div1');
+
+
+var getId = (function(func) {
+    return function() {
+        
+       return func.apply(document, arguments);
+    }
+})(document.getElementById);
+
+
+console.log(getId('div1'))
+
+
+function ccc() {
+    console.log(this)
+}
+ccc()
+
+console.log(Math.max.apply(null, [1,2,3,8,1]));
+
+
+
+
+//实现bind
+
+Function.prototype.bind = function() {
+    var self = this,
+        context = [].shift.call(arguments),
+        args = [].slice.call(arguments);
+
+        return function() {
+            self.apply(context, [].slice.call(arguments).concat(args))
+        }
+}
+
+
+var obj = {
+    name: 'zhangrui'
+}
+
+var func = function (a,b,c,d) {
+    console.log(this.name);
+    console.log([a,b,c,d]);
+}.bind(obj, 1,2)
+
+func(3,4)
+
+
+
+var A = function(name) {
+    this.name = name;
+}
+
+A.prototype.sing = function() {
+    console.log('I like singing');
+}
+
+var B = function() {
+    A.apply(this, arguments);
+}
+
+B.prototype = new A();
+
+B.prototype.constructor = B;
+
+B.prototype.getName = function(){
+    console.log(this.name);
+}
+
+var b = new B('zhangrui');
+
+b.getName();
+// b.sing()
+
+
+/* func.call(obj);
+obj.func = function(){
+
+}
+obj.func();
+delete obj.func; */
+
+
+(function() {
+    Array.prototype.push.apply(arguments, [3]);
+})(1,2)
+
+// var str = 'zhangrui';
+// Array.prototype.push.call(str, '1');
+// console.log(str)
+
+
+var obj = {};
+Array.prototype.push.call(obj, 'first')
+console.log(obj)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// document.getElementById('div1').onclick = function() {
+//     console.log(this)
+// }
+
+// function aaa() {
+//     console.log(this.id)
+// }
+
+// var bbb = aaa.bind(document.getElementById('div1'))
+
+</script>

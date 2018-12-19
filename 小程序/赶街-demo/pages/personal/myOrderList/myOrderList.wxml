@@ -1,0 +1,188 @@
+
+<!-- orderList page -->
+<view class='nav'>
+  <view class="navtab {{currentTab==index ? 'on' : ''}}" wx:key="{{index}}" wx:for="{{navList}}" bindtap='a' data-index="{{index}}" data-id="{{item.id}}">{{item.text}}</view>
+  <!-- <view class='navtab active' >
+    <text>全部</text>
+  </view> -->
+</view> 
+<view style='height:88rpx;'></view>
+<swiper current="{{currentTab}} "class="swiper-box "duration="300 "style="height:{{winHeight - 31}}px "bindchange="bindChange">
+  <!-- all -->
+  <swiper-item>
+    <scroll-view scroll-y style="height:100%;">
+      <view class='allOrder'>  
+        <view class="orderList" wx:key="{{index}}" wx:for="{{orderInfo}}">
+          <view class='orderHead'>
+            <text class='time'>{{item.gmtCreated}}</text>
+            <text class='orderStatus' wx:if="{{item.orderStatus == 0}}" style='color:#999'>已取消</text>
+            <text class='orderStatus' wx:if="{{item.orderStatus == 1}}">待付款</text>
+            <text class='orderStatus' wx:if="{{item.orderStatus == 2}}">待发货</text>
+            <text class='orderStatus' wx:if="{{item.orderStatus == 3}}">已发货</text>
+            <text class='orderStatus' wx:if="{{item.orderStatus == 4}}">关闭</text>
+            <text class='orderStatus' wx:if="{{item.orderStatus == 5}}">待评价</text>
+            <text class='orderStatus' wx:if="{{item.orderStatus == 6}}">已完成</text>
+            <text class='orderStatus' wx:if="{{item.orderStatus == 7}}" style='color:#999'>售后服务</text>
+          </view>
+          <view class='orderInfo' data-tradeNo="{{item.tradeNo}}" data-orderNo="{{item.orderNo}}" data-orderStatus="{{item.orderStatus}}" bindtap='handelToDetail'>
+            <view class='orderPic'>
+              <image src="{{item.imgUrl}}"></image> 
+            </view>
+            <view class='orderDesc'>
+              <view class='goodsTitle'>{{item.title}}</view>
+              <view class='goodsStandard'>规格：{{item.standard}} <text>x{{item.num}}</text> </view> 
+            </view>
+          </view>
+          <view class='goodsPrice'>实付款（含运费）： <text class='price'>¥<text>{{item.buyerPayAmount}}</text></text></view> 
+          <view class='statusBtn'>
+            <button class='receive' wx:if="{{item.orderStatus == 3}}" data-orderNo="{{item.orderNo}}" bindtap='handelTake'>确认收货</button>
+            <!-- <button class='del' wx:if="{{item.orderStatus == 0}}">删除订单</button> -->
+            <button class='del' wx:if="{{item.orderStatus == 1}}" bindtap='cancelOrders' data-tradeNo="{{item.tradeNo}}">取消订单</button>
+            <button class='pay' wx:if="{{item.orderStatus == 1}}" bindtap='pay' data-tradeNo="{{item.tradeNo}}">付款</button>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </swiper-item> 
+  <!-- 待付款 -->
+  <swiper-item>
+    <scroll-view scroll-y style="height:100%;">
+      <view class='allOrder'>  
+        <view class="orderList" wx:key="{{index}}" wx:for="{{orderInfo}}">
+          <view class='orderHead'>
+            <text class='time'>{{item.gmtCreated}}</text>
+            <text class='orderStatus' wx:if="{{item.orderStatus == 0}}" style='color:#999'>已取消</text>
+            <text class='orderStatus' wx:if="{{item.orderStatus == 1}}">待付款</text>
+            <text class='orderStatus' wx:if="{{item.orderStatus == 2}}">待发货</text>
+            <text class='orderStatus' wx:if="{{item.orderStatus == 3}}">已发货</text>
+            <text class='orderStatus' wx:if="{{item.orderStatus == 4}}">关闭</text>
+            <text class='orderStatus' wx:if="{{item.orderStatus == 5}}">待评价</text>
+            <text class='orderStatus' wx:if="{{item.orderStatus == 6}}">已完成</text>
+            <text class='orderStatus' wx:if="{{item.orderStatus == 7}}" style='color:#999'>售后服务</text>
+          </view>
+          <view class='orderInfo' data-tradeNo="{{item.tradeNo}}" data-orderNo="{{item.orderNo}}" bindtap='handelToDetail'>
+            <view class='orderPic'>
+              <image src="{{item.imgUrl}}"></image> 
+            </view>
+            <view class='orderDesc'>
+              <view class='goodsTitle'>{{item.title}}</view>
+              <view class='goodsStandard'>规格：{{item.standard}} <text>x{{item.num}}</text> </view> 
+            </view>
+          </view>
+          <view class='goodsPrice'>实付款（含运费）： <text class='price'>¥<text>{{item.buyerPayAmount}}</text></text></view> 
+          <view class='statusBtn'>
+            <button size='mini' class='receive' wx:if="{{item.orderStatus == 3}}">确认收货</button>
+            <!-- <button size='mini' class='del' wx:if="{{item.orderStatus == 0}}">删除订单</button> -->
+            <button class='del' wx:if="{{item.orderStatus == 1}}" bindtap='cancelOrders' data-tradeNo="{{item.tradeNo}}">取消订单</button>
+            <button size='mini' class='pay' wx:if="{{item.orderStatus == 1}}" bindtap='pay' data-tradeNo="{{item.tradeNo}}">付款</button>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </swiper-item>
+  <!-- 待发货 -->
+  <swiper-item>
+    <scroll-view scroll-y style="height:100%;">
+      <view class='allOrder'>  
+        <view class="orderList" wx:key="{{index}}" wx:for="{{orderInfo}}">
+          <view class='orderHead'>
+            <text class='time'>{{item.gmtCreated}}</text>
+            <text class='orderStatus' wx:if="{{item.orderStatus == 0}}" style='color:#999'>已取消</text>
+            <text class='orderStatus' wx:if="{{item.orderStatus == 1}}">待付款</text>
+            <text class='orderStatus' wx:if="{{item.orderStatus == 2}}">待发货</text>
+            <text class='orderStatus' wx:if="{{item.orderStatus == 3}}">已发货</text>
+            <text class='orderStatus' wx:if="{{item.orderStatus == 4}}">关闭</text>
+            <text class='orderStatus' wx:if="{{item.orderStatus == 6}}">已完成</text>
+            <text class='orderStatus' wx:if="{{item.orderStatus == 7}}" style='color:#999'>售后服务</text>
+          </view>
+          <view class='orderInfo' data-tradeNo="{{item.tradeNo}}" data-orderNo="{{item.orderNo}}" bindtap='handelToDetail'>
+            <view class='orderPic'>
+              <image src="{{item.imgUrl}}"></image> 
+            </view>
+            <view class='orderDesc'>
+              <view class='goodsTitle'>{{item.title}}</view>
+              <view class='goodsStandard'>规格：{{item.standard}} <text>x{{item.num}}</text> </view> 
+            </view>
+          </view>
+          <view class='goodsPrice'>实付款（含运费）： <text class='price'>¥<text>{{item.buyerPayAmount}}</text></text></view> 
+          <view class='statusBtn'>
+            <button size='mini' class='receive' wx:if="{{item.orderStatus == 3}}">确认收货</button>
+            <!-- <button size='mini' class='del' wx:if="{{item.orderStatus == 0}}">删除订单</button> -->
+            <button size='mini' class='pay' wx:if="{{item.orderStatus == 1}}">付款</button>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </swiper-item>
+  <!-- 待收货 -->
+  <swiper-item>
+    <scroll-view scroll-y style="height:100%;">
+      <view class='allOrder'>  
+        <view class="orderList" wx:key="{{index}}" wx:for="{{orderInfo}}">
+          <view class='orderHead'>
+            <text class='time'>{{item.gmtCreated}}</text>
+            <text class='orderStatus' wx:if="{{item.orderStatus == 0}}" style='color:#999'>已取消</text>
+            <text class='orderStatus' wx:if="{{item.orderStatus == 1}}">待付款</text>
+            <text class='orderStatus' wx:if="{{item.orderStatus == 2}}">待发货</text>
+            <text class='orderStatus' wx:if="{{item.orderStatus == 3}}">已发货</text>
+            <text class='orderStatus' wx:if="{{item.orderStatus == 4}}">关闭</text>
+            <text class='orderStatus' wx:if="{{item.orderStatus == 5}}">待评价</text>
+            <text class='orderStatus' wx:if="{{item.orderStatus == 6}}">已完成</text>
+            <text class='orderStatus' wx:if="{{item.orderStatus == 7}}" style='color:#999'>售后服务</text>
+          </view>
+          <view class='orderInfo' data-tradeNo="{{item.tradeNo}}" data-orderNo="{{item.orderNo}}" bindtap='handelToDetail'>
+            <view class='orderPic'>
+              <image src="{{item.imgUrl}}"></image> 
+            </view>
+            <view class='orderDesc'>
+              <view class='goodsTitle'>{{item.title}}</view>
+              <view class='goodsStandard'>规格：{{item.standard}} <text>x{{item.num}}</text> </view> 
+            </view>
+          </view>
+          <view class='goodsPrice'>实付款（含运费）： <text class='price'>¥<text>{{item.buyerPayAmount}}</text></text></view> 
+          <view class='statusBtn'>
+            <button size='mini' class='receive' wx:if="{{item.orderStatus == 3}}" data-orderNo="{{item.orderNo}}" bindtap='handelTake'>确认收货</button>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </swiper-item>
+  <!-- 售后 -->
+  <swiper-item>
+    <scroll-view scroll-y style="height:100%;">
+      <view class='allOrder'>  
+        <view class="orderList" wx:key="{{index}}" wx:for="{{orderInfo}}">
+          <view class='orderHead'>
+            <text class='time'>{{item.gmtCreated}}</text>
+            <text class='orderStatus' wx:if="{{item.orderStatus == 0}}" style='color:#999'>已取消</text>
+            <text class='orderStatus' wx:if="{{item.orderStatus == 1}}">待付款</text>
+            <text class='orderStatus' wx:if="{{item.orderStatus == 2}}">待发货</text>
+            <text class='orderStatus' wx:if="{{item.orderStatus == 3}}">已发货</text>
+            <text class='orderStatus' wx:if="{{item.orderStatus == 4}}">关闭</text>
+            <text class='orderStatus' wx:if="{{item.orderStatus == 5}}">待评价</text>
+            <text class='orderStatus' wx:if="{{item.orderStatus == 6}}">已完成</text>
+            <text class='orderStatus' wx:if="{{item.orderStatus == 7}}" style='color:#999'>售后服务</text>
+          </view>
+          <view class='orderInfo' data-orderNo="{{item.orderNo}}" data-tradeNo="{{item.tradeNo}}" bindtap='handelToRefund'>
+            <view class='orderPic'>
+              <image src="{{item.imgUrl}}"></image> 
+            </view>
+            <view class='orderDesc'>
+              <view class='goodsTitle'>{{item.title}}</view>
+              <view class='goodsStandard'>规格：{{item.standard}} <text>x{{item.num}}</text> </view> 
+            </view>
+          </view>
+          <view class='goodsPrice'>实付款（含运费）： <text class='price'>¥<text>{{item.buyerPayAmount}}</text></text></view> 
+          <view class='statusBtn'>
+            <button size='mini' class='receive' wx:if="{{item.orderStatus == 3}}">确认收货</button>
+            <button size='mini' class='del' wx:if="{{item.orderStatus == 0}}">删除订单</button>
+            <button size='mini' class='pay' wx:if="{{item.orderStatus == 1}}">付款</button>
+          </view>
+        </view>
+      </view>
+      <view class='noData'>
+        <image></image>
+      </view>
+    </scroll-view>
+  </swiper-item>
+</swiper>

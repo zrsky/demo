@@ -1,0 +1,151 @@
+<!-- orderDetail page -->
+<view class='orderStatus'>
+  <view wx:if="{{orderInfo.orderStatus == 0}}"> 
+    <text>交易取消</text>
+  </view>
+  <view wx:if="{{orderInfo.orderStatus == 1}}"> 
+    <text>待付款</text>
+  </view>
+  <view wx:if="{{orderInfo.orderStatus == 2}}"> 
+    <text>待发货</text>
+  </view>
+  <view wx:if="{{orderInfo.orderStatus == 3}}"> 
+    <text>待收货</text>
+    <!-- <view class='time'>ToDo还剩4天8小时自动确认收货</view> -->
+  </view>
+  <view wx:if="{{orderInfo.orderStatus == 4}}"> 
+    <text>交易关闭</text>
+  </view>
+  <view wx:if="{{orderInfo.orderStatus == 6}}"> 
+    <text>已完成</text>
+  </view>
+  <view wx:if="{{orderInfo.orderStatus == 7}}"> 
+    <text>售后</text>
+  </view>
+</view>
+<view class='callSeller'>
+  <image src='../../../img/order/callSeller.png'></image>
+  <text data-phone="{{orderInfo.sellPhone}}" bindtap='callSeller'>联系商家</text>
+</view>
+<view class='address mt20'>
+  <view class='addressTitle model'>
+    <image src='../../../img/order/addressInfo.png'></image>
+    <view>收货地址</view>
+  </view>
+  <view class='addressInfo model'>
+    <view>{{orderInfo.dname}}  {{orderInfo.dphone}}</view>
+  </view>
+  <view class='addressInfo model'>
+    <view>{{orderInfo.destinationAddr}}</view>
+  </view>
+</view>
+<view class='express mt20' wx:if="{{orderInfo.orderStatus == 3}}">
+  <view class='expressTitle model'>
+    <image src='../../../img/order/expressInfo.png'></image>
+    <view>物流信息</view>
+  </view>
+  <view class='expressInfo model'>
+    <view>
+      <text class='expressName'>物流公司:</text>
+      <text>{{orderInfo.companyName}}</text>
+    </view>
+  </view>
+  <view class='expressInfo model'>
+    <view class='expressDesc'>
+      <text class='expressNo'>物流单号:</text>
+      <text>{{orderInfo.expressNo}}</text>
+      <button bindtap='copy' data-expressNo="{{orderInfo.expressNo}}">复制</button> 
+    </view>
+  </view>
+</view>
+<view class='goods mt20'>
+  <view class='goodsTitle model'>
+    <image src='../../../img/order/goodsInfo.png'></image>
+    <view>商品信息</view>
+  </view>
+  <view class='goodsInfo'>
+    <view>
+      <image class='goodsPic' src="{{orderInfo.imgUrl}}"></image>
+    </view>
+    <view class='goodsInfos'>
+      <view class='goodsDesc'>
+        <view class='txt'>{{orderInfo.title}}</view>
+        <view class='standard'>规格：{{orderInfo.standard}}</view>
+      </view>
+      <view class='goodsPrice'>
+        <view>¥ {{orderInfo.platSalePrice}}</view>
+        <view class='goodsNum'>x {{orderInfo.num}}</view>
+      </view>
+    </view>
+  </view>
+   <view class='refund' wx:if="{{orderInfo.orderStatus == 2 || orderInfo.orderStatus == 3}}">
+    <button data-orderNo="{{orderInfo.orderNo}}" data-money="{{orderInfo.buyerPayAmount}}" data-orderStatus="{{orderInfo.orderStatus}}" bindtap='refund'>退款</button>
+  </view> 
+  <view class='line'>
+  </view>
+</view>
+<view class="orderPrice pd24">
+  <view class='carriage'>
+    <text class='txt'>订单金额</text>
+    <text>¥ {{orderInfo.buyerPayAmount}}</text>
+  </view>
+</view>
+<view class='allPrice'>
+  <text class='txt'>实付款（含运费）：</text>
+  <text class='money'>¥ <text>{{orderInfo.buyerPayAmount}}</text></text>
+</view>
+<view class='order mt20'>
+  <view class='orderTitle model'>
+    <image src='../../../img/order/orderInfo.png'></image>
+    <view>订单信息</view>
+  </view>
+  <view class='orderExchange'>
+    <view class='orderNo list'>
+      <text class='txt'>订单编号</text>
+      <text>{{orderInfo.orderNo}}</text>
+      <button class='copy' bindtap='copy' data-orderNo="{{orderInfo.orderNo}}">复制</button>
+    </view>
+    <view class='orderNo list'>
+      <text class='txt'>下单时间</text>
+      <view>{{orderInfo.gmtCreated}}</view>
+    </view>
+    <view class='orderNo list'>
+      <text class='txt'>付款时间</text>
+      <view wx:if="{{orderInfo.payTime != null}}">{{orderInfo.payTime}}</view>
+    </view>
+    <view class='orderNo list'>
+      <text class='txt'>付款类型</text>
+      <view>
+        <text wx:if="{{orderInfo.payType == 1}}">支付宝支付</text>
+        <text wx:if="{{orderInfo.payType == 2}}">微信支付</text>
+        <text wx:if="{{orderInfo.payType == 3}}">翼支付</text>
+        <text wx:if="{{orderInfo.payType == 4}}">余额</text>
+        <text wx:if="{{orderInfo.payType == 9}}">小程序支付</text>
+      </view>
+    </view>
+  </view>
+</view>
+<view style='height:120rpx;'></view>
+<view class='btnGroup' wx:if="{{orderInfo.orderStatus != 0 && orderInfo.orderStatus != 6 && orderInfo.orderStatus != 2}}">
+  <view>
+    <button wx:if="{{orderInfo.orderStatus == 1}}" bindtap='cancelOrders'>取消订单</button>
+  </view>
+  <view>
+    <button wx:if="{{orderInfo.orderStatus == 1}}" class='btn' bindtap='pay'>付款</button>
+    <button wx:if="{{orderInfo.orderStatus == 3}}" class='btn' bindtap='handelTake'>确认收货</button> 
+  </view>
+</view> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+

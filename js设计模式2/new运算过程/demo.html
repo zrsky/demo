@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>new运算过程</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+//     在这里 Person 并不是类，而是函数构造器，JavaScript 的函数既可以作为普通函数被调用，
+// 也可以作为构造器被调用。当使用 new 运算符来调用函数时，此时的函数就是一个构造器。 用
+// new 运算符来创建对象的过程，实际上也只是先克隆 Object.prototype 对象，再进行一些其他额
+// 外操作的过程。
+function Persion(name) {
+    this.name = name;
+}
+
+Persion.prototype.getName = function() {
+    console.log(this.name)
+}
+
+var objFactory = function() {
+    var obj = new Object(),
+        constructor = [].shift.apply(arguments);
+
+         obj.__proto__ = constructor.prototype;
+         var ret = constructor.apply(obj, arguments);
+        console.log(ret)
+         return typeof ret === 'object' ? ret : obj;
+}
+
+var a = objFactory(Persion, 'zhangrui'); // => var a = new Persion('zhangrui)
+a.getName()
+
+
+</script>

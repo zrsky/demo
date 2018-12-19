@@ -1,0 +1,92 @@
+<!-- 商品详情 -->
+<view class="goodsDetail-main">
+  <view class="goodsDetail-swiper">
+    <swiper indicator-dots="{{indicatorDots}}" autoplay="false" circular="true" interval="5000" duration="1000">
+      <block wx:key="*this" wx:for="{{goodsInfo.imgUrls}}">
+        <swiper-item>
+          <image src="{{item}}" mode='aspectFill' class="slide-image"/>
+        </swiper-item>
+      </block> 
+    </swiper>
+  </view>
+  <view class="goodsDetail"> 
+    <view class='title'>{{goodsInfo.goodsTitle}}</view> 
+    <view class='desc'>{{goodsInfo.feature}}</view>
+    <view class='commissionIntr'>
+      <view>{{goodsInfo.commisonIntroduce}}</view>
+      <view>已报名人数：{{goodsInfo.saleQuantity}}</view>
+    </view>
+  </view>
+  <view>
+    <import src="../../../utils/wxParse/wxParse.wxml"/> 
+    <view class="goodsDetails-parse">
+      <!-- 这一块是富文本 显示的内容区 -->
+      <template is="wxParse" data="{{wxParseData:goodsDetails.nodes}}"/>
+    </view>
+  </view>
+  <view style='height:100rpx;'></view>
+  <view class="btnGroup">
+    <!-- <view class='call' bindtap='callSeller'>
+      <view class='callIcon'>
+        <image src='../../../img/tabBar/store-service.png'></image>
+      </view>
+      <view class='txt'>
+        <text>联系我们</text>
+      </view>
+    </view>
+    <view class='call' bindtap='callSeller' wx:if="{{ shareType == '3' || shareType == '2' }}">
+      <view class='callIcon'>
+        <image src='../../../img/common/menu_store_off.png'></image>
+      </view>
+      <view class='txt'>
+        <text>首页</text>
+      </view>
+    </view>
+    <view class='call' bindtap='callSeller' wx:if="{{ shareType == '3' }}">
+      <view class='callIcon'>
+        <image src='../../../img/common/menu_selection_off2.png'></image>
+      </view>
+      <view class='txt'>
+        <text>店铺</text>
+      </view>
+    </view>
+    <button class='apply' bindtap='apply'>立即报名</button>
+    <button class='share' open-type="share">立即分享</button>  -->
+    <!-- 普通商品 -->
+    <view wx:if="{{ shareType == '1' }}" class="goodsDetail-bottom">
+      <view class="goodsDetail-bottom-cont personal" bindtap='callSeller'>
+        <image src="../../../img/tabBar/store-service.png" mode="aspectFill"></image>
+        <text>联系我们</text>
+      </view>
+      <view class="goodsDetail-bottom-buy personal-buy" bindtap="apply">立即报名</view>
+    </view>    
+    <!-- 微信内分享商品 -->
+    <view wx:if="{{ shareType == '2' }}" class="goodsDetail-bottom">
+      <view class="goodsDetail-bottom-cont wx" bindtap='callSeller'>
+        <image src="../../../img/tabBar/store-service.png" mode="aspectFill"></image>
+        <text>联系我们</text>
+      </view>
+      <view bindtap='jumpIndex' class="goodsDetail-bottom-cont wx">
+        <image src="../../../img/common/menu_store_off.png" mode="aspectFill"></image>
+        <text>首页</text>
+      </view>
+      <view class="goodsDetail-bottom-buy wx-buy" bindtap="apply">立即报名</view>
+    </view>   
+    <!-- app分享商品 -->
+    <view wx:if="{{ shareType == '3' }}" class="goodsDetail-bottom">
+      <view class="goodsDetail-bottom-cont app" bindtap='callSeller'>
+        <image src="../../../img/tabBar/store-service.png" mode="aspectFill"></image>
+        <text>联系我们</text>
+      </view>
+      <view bindtap='jumpIndex' class="goodsDetail-bottom-cont app">
+        <image src="../../../img/common/menu_store_off.png" mode="aspectFill"></image>
+        <text>首页</text>
+      </view>
+      <view bindtap='jumpStore' class="goodsDetail-bottom-cont app">
+        <image src="../../../img/common/menu_selection_off2.png" mode="aspectFill"></image>
+        <text>店铺</text>
+      </view>
+      <view class="goodsDetail-bottom-buy app-buy" bindtap="apply">立即报名</view>
+    </view>   
+  </view>
+</view>

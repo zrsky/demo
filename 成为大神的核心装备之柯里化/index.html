@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+//参数复用
+function add(a){
+	return function(b) {
+		return function(c) {
+			return a + b + c
+		}
+	}
+}
+
+var a = add(10)(20);
+var b = a(20);
+var b = a(30);
+
+//提前返回
+var addEvent = (function() {
+	if(window.addEventListener) {
+		return function(el, type, callback, propogation) {
+			el.addEventListener(type, callback, propogation);
+		}
+	}else if(window.attachEvent) {
+		return function(el, type, callback) {
+			el.attachEvent('on' + type, callback);
+		}
+	}
+})()
+
+//延迟计算
+	// var allScore = 0;
+	// var addScore = function(score) {
+	// 	allScore += score;
+	// }
+
+	// addScore(3)
+	// addScore(2)
+	// addScore(1)
+
+	//比赛结束之后
+	var curryScore = function(fn) {
+		var _allScore = [];
+		return function() {
+
+			if(arguments.length === 0) {
+				return fn.apply(null, _allScore);
+			}else{
+				_allScore = _allScore.concat([].slice.call(arguments));
+			}
+		}
+	}
+
+	var curryAddScore = curryScore(function() {
+		var i=0,len = arguments.length;
+		console.log(arguments)
+		for(;i<len;i++) {
+			allScore += arguments[i];
+		}
+	})
+
+	allScore = 0;
+	curryAddScore(10)
+	curryAddScore(2)
+	console.log(allScore);
+	curryAddScore(2)
+	curryAddScore(2)
+	curryAddScore()
+
+	console.log(allScore);
+</script>

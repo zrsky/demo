@@ -1,0 +1,166 @@
+/* pages/goods/goodsList.wxss */
+.banner {
+  width:100%;
+  position: relative;
+}
+
+.loading-top {
+  display:flex;
+  flex-direction: row;
+  justify-content: space-around;
+  position: fixed;
+  top:0;
+  left:0;
+  width:100%;
+}
+
+.loading-bottom {
+  display:flex;
+  flex-direction: row;
+  justify-content: space-around;
+  position: fixed;
+  bottom:0;
+  left:0;
+  width:100%;
+}
+
+.img-ganjie-loading {
+  width:180rpx;
+  height:100rpx;
+}
+
+.address {
+  display: -webkit-box;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  font-size: 28rpx;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:1;
+  color:#fff; 
+}
+
+.banner-image {
+  width:100%;
+  min-height: 300rpx;
+  height:300rpx;
+}
+
+.areacode {
+  position:absolute;
+  left:25rpx;
+  top:25rpx;
+  width:180rpx;
+  height:60rpx;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.areacode text {
+  font-size:40rpx;
+  float:left;
+}
+
+.areacode image {
+  width:30rpx;
+  height:32rpx;
+  float:left;
+  margin-top:5rpx;
+  margin:5rpx 0 0 5rpx;
+
+}
+
+.board-list {
+   display: flex;
+   flex-direction: column;
+}
+
+.board-item {
+  display: flex;
+  flex-direction: row;
+  height:220rpx;
+  padding: 30rpx;
+  border-bottom:1rpx solid #e2e2e2;
+}
+
+.board-item navigator{
+  display:flex;
+  flex-wrap:nowrap;
+}
+
+.board-image {
+  width:220rpx;
+  height:220rpx;
+}
+
+.board-image image {
+  width:220rpx;
+  height:220rpx;
+}
+
+.board-info {
+  display:flex;
+  flex:1;
+  flex-direction: column;
+  font-size:32rpx;
+  margin-left:10rpx;
+}
+
+.board-info-name {
+    display: -webkit-box;
+    word-break: break-all;
+    text-overflow: ellipsis;
+    font-size: 34rpx;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp:1;
+    height:40rpx;
+    line-height:40rpx;
+}
+
+.board-info-sellPoint {
+    display: -webkit-box;
+    word-break: break-all;
+    text-overflow: ellipsis;
+    font-size: 28rpx;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp:1;
+    height:50rpx;
+    line-height: 50rpx;
+    color:#999999;
+}
+
+ .board-info-sku-box {
+    height:62rpx;
+    line-height:62rpx;
+}
+
+.board-info-sku {
+    border:1rpx solid #DAEFFF;
+    color:#1D9DFF;
+    border-radius: 4rpx;
+    margin-right:20rpx;
+    padding:4rpx 8rpx;
+    font-size:24rpx;
+} 
+
+.board-info-priceOrSales {
+    height:68rpx;
+    line-height:68rpx;
+}
+.board-info-price {
+    color:#F7442C;
+    font-size:45rpx;
+}
+
+.board-info-price text {
+   font-size:32rpx;
+}
+
+.board-info-sales {
+    color:#A0A0A0;
+    font-size:28rpx;
+    margin-left:20rpx;
+}

@@ -1,0 +1,141 @@
+page {
+  background: #F2F5F7;
+  /* padding-bottom:100rpx;  */
+  height: 100%;
+}
+.top {
+  height: 100rpx;
+  line-height: 100rpx;
+  background: linear-gradient(to right,#49B7FF,#2672FF);
+}
+.topTips {
+  color: #fff;
+}
+.cutTime {
+  font-size: 24rpx;
+  color: #fff;
+}
+.tips {
+  padding: 0rpx 24rpx 20rpx;
+  background: #fff;
+}
+.tipsTxt {
+  font-size: 28rpx;
+  line-height: 60rpx;
+}
+.tipsTxt .money {
+  color: #F31D1D;
+}
+.reson {
+  font-size: 24rpx;
+  color: #999;
+}
+.reson .tel {
+  color: #00A0E9;
+  margin-left: 10rpx;
+}
+.btn {
+  margin-top: 30rpx;
+  display: flex;
+  justify-content: flex-end;
+}
+.btn button {
+  line-height: 60rpx;
+  margin: 0;
+  background: #fff;
+  border-radius: 4rpx;
+  font-size: 28rpx;
+}
+.deit {
+  border: 1px solid #666;
+  color: #666;
+}
+.btn .close {
+  border: 1px solid #FF802F;
+  color: #FF802F;
+  margin-left: 10px;
+}
+.address {
+  background: #fff;
+}
+.addressText {
+  line-height: 100rpx;
+  border-bottom: 4rpx solid #F2F5F7;
+}
+.addressDetail,.refundReson {
+  padding: 26rpx 24rpx;
+}
+.list {
+  display: flex;
+  font-size: 24rpx;
+  line-height: 50rpx;
+  font-weight: 600;
+}
+.list .label {
+  width: 150rpx;
+  color: #999;
+}
+.list .txt {
+  flex: 1 1 150rpx;
+  color: #333;
+}
+.refundInfo {
+  background: #fff;
+}
+.orderInfo {
+  padding: 50rpx 20rpx;
+  display: flex;
+  border-bottom: 4rpx solid #F2F5F7;
+}
+.pic {
+  width: 100rpx;
+  height: 100rpx;
+}
+.pic image {
+  width: 100%;
+  height: 100rpx;
+}
+.desc {
+  flex: 1 1 100rpx;
+  margin-left: 20rpx;
+}
+.desc .txt {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #333;
+}
+.Standard {
+  font-size: 24rpx;
+  color: #999;
+}
+.resonPic {
+  display: flex;
+}
+.resonPic image {
+  margin-top: 40rpx;
+  margin-right: 20rpx;
+  width: 150rpx;
+  height: 150rpx;
+}
+.contactBtn {
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100rpx;
+  line-height: 100prx;
+}
+.contactBtn button {
+  flex: 1;
+  font-size: 36rpx;
+  border-radius: 0;
+}
+.callMerchant {
+  background: #fff;
+  color: #333;
+}
+.callPlatform {
+  background: #00A0E9;
+  color: #fff;
+}

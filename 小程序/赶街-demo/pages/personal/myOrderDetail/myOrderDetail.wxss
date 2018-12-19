@@ -1,0 +1,247 @@
+page {
+  background: #F2F5F7;
+}
+.orderStatus {
+  padding: 26rpx 30rpx;
+  background: #fff;
+  color: #239AFF;
+  font-size: 40rpx;
+  border-top: 1rpx solid #dfdfdf;
+  border-bottom: 1rpx solid #e2e2e2;
+}
+.time {
+  font-size: 26rpx;
+  color: #999;
+}
+.address,.express,.goods,.order {
+  background: #fff;
+}
+.callSeller,.addressTitle,.model {
+  display: flex;
+  align-items: center;
+  height: 88rpx;
+  line-height: 88rpx;
+  padding-left: 34rpx;
+  font-size: 30rpx;
+  color: #323232;
+  background: #fff;
+}
+.callSeller text,.addressTitle view,.addressTitle view,.expressTitle view,.goodsTitle view,.orderTitle view {
+  font-size: 30rpx;
+  font-weight: bold;
+}
+.callSeller image {
+  width: 34rpx;
+  height: 31rpx;
+  margin-right: 22rpx;
+}
+.addressTitle image {
+  width: 26rpx;
+  height: 30rpx;
+  margin-right: 22rpx;
+}
+.model view{
+  flex: 1;
+  border-bottom: 1rpx solid #ddd;
+  font-size: 28rpx;
+}
+.addressInfo,.expressInfo {
+  margin-left: 48rpx;
+}
+.expressTitle image {
+  width: 28rpx;
+  height: 26rpx;
+  margin-right: 20rpx;
+}
+.expressName,.expressNo {
+  color: #999;
+  margin-right: 28rpx;
+}
+.expressDesc {
+  display: flex;
+  align-items: center;
+}
+.expressDesc button {
+  margin: 0;
+  padding: 0;
+  margin-left: 32rpx;
+  width: 80rpx;
+  height: 32rpx;
+  line-height: 32rpx;
+  font-size: 20rpx;
+  background: #fff;
+  border: 1rpx solid #aaa;
+  color: #666;
+}
+.goodsTitle image {
+  width: 26rpx;
+  height: 26rpx;
+  margin-right: 20rpx;
+}
+.goodsInfo {
+  display: flex;
+  padding: 44rpx 24rpx;
+}
+.goodsInfos {
+  display: flex;
+  flex: 1;
+  justify-content: space-around;
+}
+.goodsPic {
+  width: 100rpx;
+  height: 100rpx;
+}
+.goodsDesc {
+  flex: 1;
+  margin-left: 20rpx;
+}
+.goodsDesc .txt {
+  font-size: 28rpx;
+  color: #313131;
+}
+.goodsDesc .standard {
+  font-size: 24rpx;
+  color: #999;
+}
+.goodsPrice {
+  width: 180rpx;
+  font-size: 26rpx;
+  margin-left: 20rpx;
+  text-align: right;
+}
+.goodsNum {
+  color: #999;
+}
+.refund {
+  display: flex;
+  padding-bottom: 39rpx;
+  padding-right: 28rpx;
+  justify-content: flex-end;
+}
+.refund button {
+  margin: 0;
+  padding: 0;
+  width: 136rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  font-size: 24rpx;
+  background: #fff;
+  color: #313131;
+  border: 1rpx solid #aaa;
+  border-radius: 30rpx;
+}
+.line {
+  line-height: 20rpx;
+  height: 20rpx;
+  margin-left: 48rpx;
+  border-bottom: 1rpx solid #E7E7E7;
+}
+.orderPrice {
+  padding: 24rpx;
+  background: #fff;
+  font-size: 26rpx;
+  color: #323232;
+}
+.orderPrice .txt {
+  color: #999;
+}
+.allPrice {
+  position: relative;
+  padding: 34rpx 24rpx;
+  text-align: right;
+  background: #fff;
+  border-top: 1rpx solid #ddd;
+  border-bottom: 1rpx solid #ddd;
+}
+.allPrice::before {
+  content: '';
+  position: absolute;
+  top: -12px;
+  right: 26px;
+  border: 6px solid #ddd;
+  border-color: transparent transparent #ddd transparent; 
+}
+ .allPrice::after {
+  content: '';
+  position: absolute;
+  top: -11px;
+  right: 26px;
+  border: 6px solid #fff;
+  border-color: transparent transparent #fff transparent; 
+} 
+.allPrice .txt {
+  font-size: 20rpx;
+}
+.allPrice .money {
+  font-size: 24rpx;
+  color: #F31919;
+}
+.allPrice .money text {
+  font-size: 30rpx;
+  font-weight: 600;
+}
+.orderTitle image {
+  width: 26rpx;
+  height: 26rpx;
+  margin-right: 20rpx;
+}
+/* 订单信息 */
+.orderExchange {
+  padding: 32rpx 24rpx;
+  background: #fff;
+}
+.list {
+  display: flex;
+  height: 50rpx; 
+  line-height: 50rpx; 
+  font-size: 22rpx;
+  align-items: center;
+  margin-left: 54rpx;
+}
+.list .txt {
+  margin-right: 24rpx;
+  color: #999;
+}
+.copy {
+  margin: 0;
+  padding: 0;
+  margin-left: 34rpx;
+  width: 80rpx;
+  height: 32rpx;
+  line-height: 32rpx;
+  font-size:20rpx; 
+  border: 1rpx solid #666;
+  color: #666;
+  background: #fff;
+  border-radius:30rpx; 
+}
+.carriage {
+  display: flex;
+  justify-content: space-between;
+}
+.btnGroup {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  background: #fff;
+}
+.btnGroup view {
+  flex: 1;
+}
+ .btnGroup button {
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+  line-height: 100rpx;
+  background: #fff;
+  font-size: 32rpx;
+  color: #333;
+}
+.btnGroup .btn {
+  color: #fff;
+  background: linear-gradient(to right,#15AAFF,#0088F1);
+} 

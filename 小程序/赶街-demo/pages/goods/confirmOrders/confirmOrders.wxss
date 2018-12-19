@@ -1,0 +1,263 @@
+/* 确认订单 */
+page {
+  display: block;
+  min-height: 100%;
+  background-color: #F0F5F9;
+}
+.confirmOrder-main {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+
+.confirmOrder-address {
+  width:100%;
+  height:200rpx;
+  display:flex;
+  flex-direction: row;
+}
+
+.confirmOrder-address-logo {
+  width:20%;
+  border:1rpx;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+}
+
+.confirmOrder-address-logo image{
+  width:40rpx;
+  height:40rpx;
+}
+
+.confirmOrder-address-info {
+  width:80%;
+  display:flex;
+  font-size:28rpx;
+  justify-content: center;
+  align-items:center;
+}
+
+.no-address {
+  align-items: center;
+  justify-content:center;
+
+}
+
+.no-address image {
+  width:35rpx;
+  height:40rpx;
+}
+
+.has-address {
+  flex-direction: column;
+}
+
+.has-address view {
+  display:flex;
+  justify-content: space-between;
+  margin-bottom:20rpx;
+  width:100%;
+}
+
+.confirmOrder-address-arrow {
+  width:20%;
+  justify-content: center;
+  align-items: center;
+  display:flex;
+}
+
+.confirmOrder-address-arrow image {
+  width:16rpx;
+  height:26rpx;
+}
+
+.stript image{
+  width:100%;
+  height:5rpx;
+  display:block;
+
+}
+
+.confirmOrder-goodsDetails {
+  display:flex;
+  flex-direction: row;
+  height:200rpx;
+  justify-content:flex-start;
+  align-items: center;
+  padding:0 20rpx;
+}
+
+.goodsDetails-img {
+ width:148rpx;
+ height:148rpx; 
+}
+
+.goodsDetails-info {
+  display:flex;
+  flex-direction: column;
+  margin-left:20rpx;
+  max-width:510rpx;
+  font-size:148rpx;
+}
+
+.goodsDetails-info-name {
+  display: -webkit-box;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:2;
+  height:60rpx;
+  line-height:30rpx;
+  font-size:30rpx;
+  color:#313131;
+}
+
+.goodsDetails-info-sku {
+  color:#525252;
+  height:48rpx;
+  line-height:48rpx;
+  font-size:24rpx;
+  display:flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  color:#999999;
+}
+
+.goodsDetails-info-price {
+  font-size:40rpx;
+  height:80rpx;
+  line-height: 80rpx;
+  color:#F7442C;
+}
+
+.confirmOrder-num {
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding:0 20rpx;
+  margin:20rpx 0;
+}
+
+.confirmOrder-num text{
+  font-size:30rpx;
+}
+
+.confirmOrder-num-cale {
+  display:flex;
+  flex-direction: row;
+  width:200rpx;
+  font-size:36rpx;
+}
+.confirmOrder-num-cale button {
+  width:40rpx;
+  height:45rpx;
+  line-height: 45rpx;
+  text-align: center;
+  padding:0;
+}
+
+.confirmOrder-num-cale input {
+  width:80rpx;
+  height:40rpx;
+  font-size:32rpx;
+  border:1px solid #C3C3C3;
+  min-height:00rpx;
+  text-align: center;
+}
+
+.blank-blue {
+  height:10rpx;
+  background-color:#F0F5F9;
+}
+
+.confirmOrder-price view {
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding:20rpx 20rpx;
+  border-bottom:1rpx solid #F7F7F7;
+  font-size:30rpx;
+  color:#333333;
+  height:60rpx;
+  line-height:60rpx;
+
+}
+
+.confirmOrder-price view text:nth-child(2){
+  text-align: right;
+  width:150rpx;
+}
+
+.confirmOrder-price view:nth-child(3) {
+  border-bottom:0;
+}
+
+.confirmOrder-price-text {
+  
+}
+
+.confirmOrder-freight-text {
+  color:#ADADAD;
+}
+
+.confirmOrder-amountPrice-text {
+  color:#F7442C;
+}
+
+.confirmOrder-bottom {
+  position: fixed;
+  left:0;
+  bottom:0;
+  width:100%;
+  height:100rpx;
+  display:flex;
+  flex-direction: row;
+}
+
+.confirmOrder-bottom-price {
+  width:50%;
+  display:flex;
+  flex-direction: column;
+  background-color:#fff;
+  border-top:1rpx solid #E4E4E5;
+}
+
+.confirmOrder-bottom-price text:nth-child(1) {
+  color:#F7442C;
+  font-size:36rpx;
+  height:100rpx;
+  line-height:100rpx;
+  text-align:center;
+
+}
+
+.confirmOrder-bottom-price text:nth-child(2) {
+  color:#C3C3C3;
+  font-size:32rpx;
+  padding:5rpx 0 0 20rpx;
+}
+
+.confirmOrder-bottom-submit {
+  border-top:1rpx solid #19A9EB;
+  background-color:#19A9EB;
+  width:50%;
+  text-align: center;
+  line-height: 100rpx;
+  font-size:36rpx;
+  color:#fff;
+  background:linear-gradient(to right,#15AAFF,#0088F1);
+}
+
+.confirmOrder-bottom-submit button {
+  height:100rpx;
+  margin:0;
+  padding:0;
+  line-height:100rpx;
+  background:none;
+  color:#fff;
+}

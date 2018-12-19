@@ -1,0 +1,64 @@
+<view class="container">
+	<view class="list-box">
+		<view class="img-text-box" wx:for="{{orderConfirm}}"  wx:key="item">
+		  <view class="img-text-item">
+			<view class="list-left">
+				<image  src="{{item.img}}"/>
+			</view>
+			<view class="list-middle">
+				<text class="list-item-title">{{item.name}}</text>
+				<text class="list-item-info">{{item.info}}</text>
+			</view>
+			<view class="list-right">
+				<view class="danger">
+					<text>￥</text>
+					<text>{{item.price}}</text>
+				</view>
+
+				<view class="btn-group">
+					<text class="btn-change-text" ><text class="hack-to-up hack-to-left">x </text>{{item.btnNum}}</text>
+				</view>
+			</view>
+		  </view>	
+		</view>
+		<view class="payTotal"><text class="hack2">餐到付款：</text><text class="danger total-font-size">￥{{payTotal}}</text></view>
+    </view>
+	<view class="form-list">
+		  <!-- <picker-view indicator-style="height: 50px;" wx:for="{{floor}}" wx:key="item" style="width: 100%; height: 300px;" value="{{value}}" bindchange="bindChange">
+		    <picker-view-column>
+		      <view style="line-height: 50px">{{item.name}}</view>
+		    </picker-view-column>
+		    <picker-view-column>
+		      <view  style="line-height: 50px">{{item.num}}</view>
+		    </picker-view-column>
+		  </picker-view>
+		  <view></view> -->
+		  <view class="address form-item">
+		  	<text class="form-text">地址：</text>
+		  	<view class="input-box" style="margin-top: -36rpx;">
+				  <picker-view indicator-style="height: 50px;" style="width: 100%; height: 100rpx;" value="{{value}}" bindchange="bindChange">
+				    <picker-view-column>
+				      <view wx:for="{{floors}}" wx:key="item" id="{{item.id}}" style="line-height: 50px">{{item.name}}楼</view>
+				    </picker-view-column>
+				    <picker-view-column>
+				      <view wx:for="{{nums}}" wx:key="item" style="line-height: 50px">{{item}}层</view>
+				    </picker-view-column>
+				  </picker-view>
+				  <view class="result">
+				  	<input type="text" value="{{detailSite}}" bindblur="changeDetailSite" placeholder="详细地址"></input>
+				  </view>
+		  	</view>
+		  </view>
+		  <view class="remark form-item">
+		  	<text>备注：</text>
+		  	<input class="input-box remark-input" type="text" bindblur="changeNote" value="{{note}}" placeholder="如：微辣，不加葱"></input>
+		  </view>
+		  <view class="tel form-item">
+		  	<text>电话：</text>
+		  	<input class="input-box tel-input" type="number" bindblur="changeTel" value="{{tel}}" maxlength="11" placeholder="有效联系方式"></input>
+		  </view>
+		  <view class="form-item sub-btn-box">
+		  	<button class="sub-btn" bindtap="submit">提交</button>
+		  </view>
+	</view>
+</view>

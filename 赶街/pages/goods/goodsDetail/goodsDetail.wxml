@@ -1,0 +1,110 @@
+<!-- 商品详情 -->
+<view class="goodsDetail-main">
+  <view class="goodsDetail-swiper">
+        <swiper indicator-dots="{{indicatorDots}}" autoplay="true" circular="true" interval="2000" duration="1000">
+          <block wx:key="*this" wx:for="{{image}}">
+            <swiper-item>
+              <image src="{{item}}" class="slide-image" mode="aspectFill"/>
+            </swiper-item>
+          </block>
+        </swiper>
+  </view>
+  <view class="goodsDetail-content">
+    <text class="goods-price"><text>￥</text>{{ price }}</text>
+    <text class="goods-name">{{ name }}</text>
+    <text class="goods-sellPointer">{{ sellPointer }}</text>
+    <view class="goods-sale">
+      <text>销量{{ sales }}</text>
+      <text>库存{{ inventory }}</text>
+      <image src="../../../img/common/share.png"></image>
+      <button class="share-btn" open-type="share">分享</button>
+    </view>
+  </view>
+  <view class="goods-back"></view>
+  <view bindtap='chooseSku' class="goods-sku">
+    <text>规格选择</text>
+    <image class="goods-sku-arrow" src="../../../img/common/arrowRight.png"></image>
+  </view>
+  <!-- 商品详情 -->
+  <view class="goodsDetails-details">商品详情</view>
+  <import src="../../../utils/wxParse/wxParse.wxml"/>
+  <view class="goodsDetails-parse">
+    <!-- 这一块是富文本 显示的内容区 -->
+    <template is="wxParse" data="{{wxParseData:goodsDetails.nodes}}"/>
+  </view>
+  <!-- 普通商品 -->
+  <view wx:if="{{ shareType == '1' }}" class="goodsDetail-bottom">
+    <view class="goodsDetail-bottom-cont personal" bindtap="contact">
+      <image src="../../../img/tabBar/store-service.png" mode="aspectFill"></image>
+      <text>联系我们</text>
+    </view>
+    <view class="goodsDetail-bottom-buy personal-buy" bindtap="chooseSku">立即购买</view>
+  </view>    
+  <!-- 微信内分享商品 -->
+  <view wx:if="{{ shareType == '2' }}" class="goodsDetail-bottom">
+    <view class="goodsDetail-bottom-cont wx" bindtap="contact">
+      <image src="../../../img/tabBar/store-service.png" mode="aspectFill"></image>
+      <text>联系我们</text>
+    </view>
+    <view bindtap='jumpFirst' class="goodsDetail-bottom-cont wx">
+      <image src="../../../img/common/menu_store_off.png" mode="aspectFill"></image>
+      <text>首页</text>
+    </view>
+    <view class="goodsDetail-bottom-buy wx-buy" bindtap="chooseSku">立即购买</view>
+  </view>   
+  <!-- app分享商品 -->
+  <view wx:if="{{ shareType == '3' }}" class="goodsDetail-bottom">
+    <view class="goodsDetail-bottom-cont app" bindtap="contact">
+      <image src="../../../img/tabBar/store-service.png" mode="aspectFill"></image>
+      <text>联系我们</text>
+    </view>
+    <view bindtap='jumpFirst' class="goodsDetail-bottom-cont app">
+      <image src="../../../img/common/menu_store_off.png" mode="aspectFill"></image>
+      <text>首页</text>
+    </view>
+    <view bindtap='jumpStore' class="goodsDetail-bottom-cont app">
+      <image src="../../../img/common/menu_selection_off2.png" mode="aspectFill"></image>
+      <text>店铺</text>
+    </view>
+    <view class="goodsDetail-bottom-buy app-buy" bindtap="chooseSku">立即购买</view>
+  </view>   
+  <!-- skumodal -->
+  <view class="mask-modal" wx:if="{{ chooseSize }}" bindtap='hideModal'></view>
+  <view class="sku-modal" wx:if="{{ chooseSize }}" animation='{{animationData}}'>
+    <view class="sku-modal-info">
+      <view class="sku-modal-info-img">
+        <image src="{{ image[0] }}" mode="aspectFill"></image>
+      </view>
+      <view class="sku-modal-info-text">
+        <text><text>￥</text>{{ price }}</text>
+        <text>销量：{{ sales }}</text>
+        <view class="sku-modal-name">已选规格：
+          <block wx:for="{{ skuModel }}" wx:key="*this">
+            {{ item.skuName }}
+          </block>
+        </view>
+      </view>
+    </view>
+    <block wx:for="{{ sku }}" wx:key="*this" >
+      <view class="sku-category">
+        <view class="sku-modal-category-name">{{ item.name }}</view>
+        <view class="sku-modal-category">
+          <block wx:for="{{ item.skuValueVOList }}" wx:key="*this">
+            <text data-text="{{ item }}" bindtap='chooseSkuVal'>{{ item.val }}</text>
+          </block>
+        </view>
+      </view>
+    </block>
+   <view class="confirmOrder-num">
+      <text>购买数量</text>
+      <view class="confirmOrder-num-cale">
+        <button bindtap='MinusPrice'>-</button>
+        <input onblur="calcNum" value="{{ num }}" />
+        <button bindtap='addPrice'>+</button>
+      </view>
+   </view>
+    <view class="goodsDetail-submit" bindtap='formSubmit'>
+      立即购买
+    </view>
+  </view>
+</view>

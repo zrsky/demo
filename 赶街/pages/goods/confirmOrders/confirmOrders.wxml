@@ -1,0 +1,67 @@
+<!-- 确认订单 -->
+<view class="confirmOrder-main">
+  <view wx:if="{{ addressStatus }}" class="confirmOrder-address" bindtap='jumpAddressList'>
+    <view class="confirmOrder-address-logo"></view>
+    <view class="confirmOrder-address-info no-address">
+      <image src="../../../img/tabBar/ad.png"></image><text>填写我的收货地址</text>
+    </view>
+    <view class="confirmOrder-address-arrow">
+      <image src="../../../img/common/arrowRight.png"></image>
+    </view>
+  </view>
+  <view wx:else class="confirmOrder-address" bindtap='jumpAddressList'>
+    <view class="confirmOrder-address-logo">
+      <image src="../../../img/tabBar/ad.png"></image>
+    </view>
+    <view class="confirmOrder-address-info has-address">
+      <view>
+        <text>收件人:{{ userName }}</text>
+        <text>{{ userPhone }}</text>
+      </view>
+      <text style="width:100%">{{ addressName }}</text>
+    </view>
+    <view class="confirmOrder-address-arrow">
+      <image src="../../../img/common/arrowRight.png"></image>
+    </view>
+  </view>
+   <view class="stript">
+    <image src="../../../img/tabBar/cai.png"></image>
+  </view> 
+  <view class="blank-blue"></view>
+  <view class="confirmOrder-goodsDetails">
+    <image src="{{ goodsImgUrl }}" class="goodsDetails-img"></image>
+    <view class="goodsDetails-info">
+      <text class="goodsDetails-info-name">{{ name }}</text>
+      <view class="goodsDetails-info-sku">规格:
+        <block wx:for="{{ skuStr }}" wx:key="*this">
+          <text>{{ item.skuName }}</text>
+        </block>
+      </view>
+    </view>
+  </view>
+  <view class="confirmOrder-num">
+    <text>数量</text>
+    <view class="confirmOrder-num-cale">
+      <button bindtap='MinusPrice'>-</button>
+      <input onblur='calcNum' value="{{ num }}" />
+      <button bindtap='addPrice'>+</button>
+    </view>
+  </view>
+  <view class="blank-blue"></view>
+  <view class="confirmOrder-price">
+    <view>
+      <text>商品金额</text><text class="confirmOrder-price-text">￥{{ price }}</text>
+    </view>
+    <view>
+      <text>合计</text><text class="confirmOrder-amountPrice-text">￥{{ amountPrice }}</text>
+    </view>
+  </view>
+  <view class="confirmOrder-bottom">
+    <view class="confirmOrder-bottom-price">
+      <text>总金额:￥{{ amountPrice }}</text>
+    </view>
+    <form class="confirmOrder-bottom-submit" bind:submit="orderSubmit" report-submit="true">
+        <button formType="submit">提交订单</button>
+    </form>
+  </view>
+</view>

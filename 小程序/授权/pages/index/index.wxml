@@ -1,0 +1,20 @@
+<!--pages/goods/goodsList.wxml-->
+<!-- <view class="container-entry">
+  <image class="img-ganjie" src="../../img/tabBar/ganjie.png"></image>
+</view> -->
+<view class="container-entry">
+  hello
+</view>
+<button wx:if="{{ status }}" class="user-btn" open-type="getUserInfo" bindgetuserinfo="getUserInfo" bindtap='closeModal'>立即使用</button>
+  <!-- 授权地理位置信息  -->
+<view wx:if="{{statusLocation}}" class="entry-shadow"></view>
+<view wx:if="{{statusLocation}}" class="entry-authorization">
+    <view class="autorization-content">
+    <text>赶街需要获取你的地理位置</text>
+    </view>
+    <view class="autorization-btn">
+      <button bindtap="exitAuthor">拒绝</button>
+      <button style="color:#2AA146" bindtap='openAuthorize'>允许</button>
+    </view>
+</view>
+

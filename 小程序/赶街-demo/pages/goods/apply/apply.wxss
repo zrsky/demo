@@ -1,0 +1,188 @@
+page {
+  background: #F0F5F9;
+}
+.title {
+  display: flex;
+  height: 100rpx;
+  align-items: center;
+  padding: 0 26rpx;
+  font-size: 28rpx;
+  color: #1D9DFF;
+}
+.title text {
+  padding-left: 2pt;
+  border-left: 3pt solid #1D9DFF;
+}
+.form {
+  padding-left: 26rpx;
+  background: #fff;
+}
+.fromList {
+  position: relative;
+  display: flex;
+  height: 100rpx;
+  line-height: 100rpx;
+  align-items: center;
+  border-bottom: 1rpx solid #ddd;
+}
+.fromList:last-child {
+  border-bottom: none;
+}
+.fromList .label {
+  display: inline-block;
+  width: 180rpx;
+  font-size: 32rpx;
+  color: #323232;
+  font-weight: 500;
+}
+.fromList input {
+  font-size: 32rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+}
+.verify {
+  position: absolute;
+  top: 0;
+  right: 20rpx;
+  font-size: 24rpx;
+  color: #FF2323;
+}
+.placeholder {
+  font-size: 28rpx;
+  color: #ccc;
+  height: 100rpx;
+  line-height: 100rpx;
+}
+.radio {
+  font-size: 28rpx;
+  margin-right: 30rpx;
+  vertical-align: middle;
+}
+.radio radio {
+  transform:scale(0.7);
+}
+.upLoad {
+  display: flex;
+  padding: 40rpx 24rpx;
+  justify-content: space-around;
+  background: #fff;
+}
+.upLoadBox {
+  position: relative;
+  width: 220rpx;
+  height: 220rpx;
+  border: 1rpx dashed #ccc;
+  border-radius: 8rpx;
+}
+.loadImg image {
+  width: 220rpx;
+  height: 220rpx;
+}
+.del {
+  position: absolute;
+  top: -10rpx;
+  right: -10rpx;
+  width: 28rpx;
+  height: 28rpx;
+}
+.del image {
+  width: 28rpx;
+  height: 28rpx;
+  display: block;
+}
+.upLoadBtn {
+  height: 100%;
+  text-align: center;
+  font-size: 28rpx;
+  color: #999;
+}
+.upLoadBtn .add {
+  font-size: 100rpx;
+}
+.loadingBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+}
+.loadingBox .loading {
+  width: 60rpx;
+  height:60rpx;
+}
+.commit {
+  position: fixed;
+  bottom:0;
+  left: 0;
+  width: 100%;
+}
+.commit button{
+  margin: 0;
+  padding: 0;
+  margin-top: 50rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-radius: 0;
+  font-size: 32rpx;
+  color: #fff;
+  background: linear-gradient(to right,#49B7FF,#2672FF);
+}
+
+
+.mask{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #000;
+    z-index: 9000;
+    opacity: 0.6;
+}
+
+.modalDlg{
+  width: 80%;
+  height: 500rpx;
+  padding: 60rpx 0px 30rpx;
+  position: absolute;
+  top:0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  z-index:9999;
+  border-radius: 20px;
+  background: #fff;
+  text-align: center;
+  font-size: 32rpx;
+}
+.modalDlg image {
+  width: 246rpx;
+  height: 229rpx;
+}
+.pic {
+  display: flex;
+  justify-content: center;
+}
+.go {
+  background: linear-gradient(to right,#49B7FF,#2672FF);
+  color: #fff;
+  border-radius: 0;
+  margin-top: 30rpx;
+}
+.close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30rpx;
+  height: 30rpx;
+  padding: 20rpx;
+}
+.close image {
+  width: 30rpx;
+  height: 30rpx;
+}

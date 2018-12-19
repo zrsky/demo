@@ -1,0 +1,259 @@
+.box{
+	z-index: 2;
+
+}
+.loading-img{
+	z-index:1;
+	height:100rpx;
+	width:100rpx;
+	margin:20rpx 0 0 140px;
+	position:absolute;
+	display:none;
+	top:0;
+}
+.showFlga{
+	display: block !important;
+}
+.top-show,.banner,.across-list,.vertical-img-text,.icon-text-btn{
+	width: 100%;
+}
+
+
+.top-show{
+	height: 100rpx;
+	width: 100%;
+	background-color: rgb(255,139,45);
+	color:white;
+	font-size: 30rpx;
+	display: flex;
+}
+
+
+.top-show view{
+	flex:1;
+	height: 100rpx;
+	line-height: 100rpx;
+	text-align: center;
+	overflow: hidden;
+}
+
+.top-show-right{
+	position: relative;
+}
+.move-set{
+	/*position: absolute;*/
+}
+
+
+.margin-right{
+	margin-right: 20rpx;
+}
+
+.banner {
+	height: 400rpx;
+	width: 100%;
+}
+
+.banner swiper{
+	height: 400rpx;
+}
+.banner image{
+	width: 100%;
+}
+
+
+.across-list{
+	height: 200rpx;
+	display: flex;
+	width: 100%;
+	padding: 46rpx 30rpx;
+}
+
+.across-list view{
+	flex: 1;
+	text-align: center;
+}
+
+.across-list text{
+	display: block;
+	font-size: 24rpx;
+}
+
+
+.across-list image{
+	height: 80rpx;
+	width: 80rpx;
+}
+
+.icon-title{
+	width: 100%;
+	height: 60rpx;
+	border-bottom: 1rpx solid rgb(254,115,2);
+	font-size: 30rpx;
+	color: rgb(102,102,102);
+	padding: 0rpx 100rpx;
+	display: flex;
+	text-align: center;
+	font-weight: bold;
+}
+
+.icon-title text{
+	flex: 1;
+	margin:0rpx 20rpx;
+}
+
+.line{
+	width: 130rpx;
+	height: 2rpx;
+	display: inline-block;
+	background-color: rgb(102,102,102);
+}
+
+.img-text-box{
+	width: 100%;
+	padding: 30rpx 50rpx;
+	border-bottom: 1rpx solid #fdc191;
+	
+
+}
+
+.list-item-title{
+	font-weight: bold;
+}
+
+.img-text-item{
+	height: 190rpx;
+	width: 100%;
+	display: flex;
+
+}
+
+.img-text-item view{
+	flex: 1;
+	margin-right: 20rpx;
+}
+
+
+.img-text-item image{
+	width: 132rpx;
+	height: 132rpx;
+}
+.img-text-item .list-item-name{
+	font-size: 32rpx;
+	display: block;
+	color: rgb(102,102,102);
+}
+.img-text-item .list-item-info {
+	display: block;
+	font-size: 18rpx;
+	color:rgb(102,102,102);
+}
+
+.list-left{
+	text-align: center;
+	line-height: 100%;
+}
+.list-middle,.list-right{
+	display: flex;
+	flex-direction: column;
+}
+
+.list-middle text,.list-right view{
+	flex: 1;
+}
+.btn-group{
+	 margin-top: -30rpx;
+}
+.btn-group text{
+		height: 46rpx;
+	  text-align: center;
+	  display: inline-block;
+	  padding-bottom: 20rpx;
+	  font-size: 24rpx;
+	  line-height: 40rpx;
+
+}
+.btn-group .click-btn{
+
+	width: 46rpx !important;
+	border:1rpx solid rgb(181,181,181);
+	
+
+}
+.btn-group .btn-change-text{
+	width: 80rpx !important;
+	border:1rpx solid rgb(238,237,237);
+	background-color: rgb(253,194,146);
+}
+
+.icon-text-btn{
+	height: 80rpx;
+	width: 100%;
+	display: flex;
+	background-color: #f4f4f4;
+	position: relative;
+	font-weight: bold;
+	bottom:-60rpx;
+
+
+}
+
+.icon-text-btn view{
+	flex: 1;
+	text-align: center;
+	line-height: 70rpx;
+} 
+
+.pink-btn{
+	height: 70rpx;
+	width: 150rpx;
+	background-color: rgb(253,124,124);
+	line-height: 70rpx;
+	text-align: center;
+	font-size: 24rpx;
+	color: white;
+	padding: 0rpx 10rpx !important;
+	margin-top:8rpx;
+
+}
+
+.icon-text-btn image{
+	height: 60rpx !important;
+	width: 60rpx !important;
+	margin-top:8rpx;
+	
+}
+
+.right-top-icon{
+	position: absolute;
+	left:18%;
+    bottom:40rpx;
+	display: block;
+	height: 40rpx;
+	width: 40rpx;
+	background-color: #ff0000;
+	text-align: center;
+	line-height: 40rpx;
+	border-radius: 50%;
+	color: white;
+	font-size: 24rpx;
+}
+
+.middle-style{
+	color:#fd0101;
+	font-size: 30rpx;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

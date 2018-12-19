@@ -1,0 +1,7 @@
+<!-- 添加收货地址 -->
+<view class="address-province">
+  <block wx:for="{{ region }}" wx:key="*this">
+    <text data-text="{{ item }}" bindtap='jumpCity'>{{ item.addressName }}</text>
+  </block>
+</view>
+

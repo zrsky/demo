@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>高阶函数</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    //分时函数
+    function timeChunk(ary, fn, count) {
+        var len = Math.min(count, ary.length),
+            t = null;
+
+        var start = function () {
+            for (var i = 0; i < len; i++) {
+                var obj = ary.shift();
+                fn(obj);
+            }
+        }
+
+        return function () {
+            t = setInterval(function () {
+                if (ary.length === 0) { // 如果全部节点都已经被创建好
+                    return clearInterval(i)
+                }
+                start();
+
+            }, 200) // 分批执行的时间间隔，也可以用参数的形式传入
+        }
+    }
+
+    var ary = [];
+    for (var i = 1; i <= 1000; i++) {
+        ary.push(i);
+    };
+    var renderFriendList = timeChunk(ary, function (n) {
+        var div = document.createElement('div');
+        div.innerHTML = n;
+        document.body.appendChild(div);
+    }, 8);
+    renderFriendList();
+
+
+    //懒性加载函数
+
+    var addEvent = function(elem, type, handler) {
+        if(window.addEventListener) {
+            addEvent = function(elem, type, handler) {
+                elem.addEventListener(type, handler, false);
+            }
+        }else if(window.attachEvent) {
+            addEvent = function(elem, type, handler) {
+                elem.attachEvent('on' + type, handler);
+            }
+        }
+        addEvent(elem, type, handler);
+    }
+</script>

@@ -1,0 +1,50 @@
+{
+  "pages": [
+    "pages/entry/entry",
+    "pages/personal/refundDetail/refundDetail",
+    "pages/goods/goodsDetail/goodsDetail",
+    "pages/goods/store/store",
+    "pages/goods/serviceGoodsDetail/serviceGoodsDetail",
+    "pages/goods/apply/apply",
+    "pages/goods/payOrderResult/payOrderResult",
+    "pages/personal/refund/refund",
+    "pages/goods/addressList/addressList",
+    "pages/goods/confirmOrders/confirmOrders",
+    "pages/goods/goodsList/goodsList",
+    "pages/personal/myOrderDetail/myOrderDetail",
+    "pages/personal/myOrderList/myOrderList",
+    "pages/personal/personalCenter/personalCenter",
+    "pages/goods/addressAdd/addressAdd",
+    "pages/goods/addressProvince/addressProvince",
+    "pages/goods/addressCounty/addressCounty",
+    "pages/goods/addressCity/addressCity",
+    "pages/goods/payOrder/payOrder",
+    "pages/areaCode/areaCode"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "赶街",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#B0B0B0",
+    "backgroundColor": "#fff",
+    "selectedColor": "#1187F6",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/goods/goodsList/goodsList",
+        "text": "首页",
+        "iconPath": "img/tabBar/selection_off.png",
+        "selectedIconPath": "img/tabBar/menu_selection_on.png"
+      },
+      {
+        "pagePath": "pages/personal/personalCenter/personalCenter",
+        "text": "我的",
+        "iconPath": "img/tabBar/personal.png",
+        "selectedIconPath": "img/tabBar/menu_per_on.png"
+      }
+    ]
+  }
+}

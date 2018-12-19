@@ -1,0 +1,72 @@
+<image class="loading-img {{showFlag?'showFlag':''}}"  src="../../images/index/loading.gif"></image>
+<view class="box">
+	<view class="banner">
+		<swiper indicator-dots="{{indicatorDots}}"
+		autoplay="{{autoplay}}"
+		interval="{{interval}}"
+		duration="{{duration}}"
+		>
+			<block wx:for="{{imgUrls}}" wx:key="item">
+				<swiper-item>
+					<image src="{{item.img}}" data-nvto="{{item.url}}" bindtap="adNvTo" class="slideImage" />
+				</swiper-item>
+			</block>
+	    </swiper>
+    </view>
+<view class="across-list" bindtap="toMenuList">
+	<view >
+		<image id="1" src="../../images/index/food.png" />
+		<text>美食</text>
+	</view>
+	<view >
+		<image id="2" src="../../images/index/supermaket.png" />
+		<text>超市</text>
+	</view>
+	<view >
+		<image id="3" src="../../images/index/drink.png" />
+		<text>饮食</text>
+	</view>
+	<view >
+		<image id="4" src="../../images/index/fruits.png" />
+		<text>水果</text>
+	</view>
+</view>
+<view class="vertical-img-text">
+	<text class="icon-title"><text class=line"></text><text>优质推荐</text><text class=line"></text></text>
+	<view class="img-text-box" wx:for="{{recommend}}"  wx:key="item">
+	  <view class="img-text-item">
+		<view class="list-left">
+			<image  src="{{item.img}}"/>
+		</view>
+		<view class="list-middle">
+			<text class="list-item-title">{{item.name}}</text>
+			<text class="list-item-info">{{item.info}}</text>
+		</view>
+		<view class="list-right">
+			<view>
+				<text>￥</text>
+				<text>{{item.price}}</text>
+			</view>
+			<view class="btn-group">
+				<text class="click-btn" data-index="{{index}}" bindtap="btnNumDown">-</text>
+				<text class="btn-change-text" >{{item.btnNum}}</text>
+				<text class="click-btn" data-index="{{index}}" bindtap="btnNumUp">+</text>
+			</view>
+		</view>
+	  </view>	
+	</view>
+</view>
+<view class="icon-text-btn">
+	<view>
+		<image src="../../images/index/shopping.png"/>
+		<text class="right-top-icon">{{dishTotalNum}}</text>
+	</view>
+	<view class="middle-style">
+		<text>￥</text>
+		<text>{{dishTotalPrice}}</text>
+	</view>
+	<view>
+		<button class="pink-btn" bindtap="setStorage">确认订单</button>
+	</view>
+</view>
+</view>

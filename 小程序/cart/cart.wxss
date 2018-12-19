@@ -1,0 +1,120 @@
+/* pages/goods/cart/cart.wxss */
+page {
+  background: #F2F2F2;
+}
+.cart-wrapper {
+  font-size: 30rpx;
+  color: #000;
+}
+.empty {
+  text-align: center;
+}
+
+.empty-text {
+  margin: 50rpx 0;
+  color: #c9c9c9;
+}
+
+.empty-btn {
+  display: inline-block;
+  margin-top: 0;
+  color: #f44;
+}
+.cart-wrapper .box {
+  padding: 40rpx;
+  background: #fff; 
+}
+.cart-wrapper .box + .box {
+  margin-top: 10px;
+}
+.cart-wrapper .box .checkbox, .cart-wrapper .box-son .label-son .checkbox-son {
+  margin-right: 20rpx;
+}
+.cart-wrapper .box-son {
+  margin-top:50rpx;
+  display:flex;
+  flex-direction:column;
+}
+
+.cart-wrapper .box-son .label-son + .label-son {
+  margin-top: 40rpx;
+}
+
+.cart-wrapper .box-son .label-son .checkbox-son {
+
+}
+.cart-wrapper .box-son .label-son {
+  display:flex;
+  align-items:center;
+}
+.cart-wrapper .box-son .label-son .good {
+  display: inline-block;
+}
+.cart-wrapper .box-son .label-son .good .good-wrapper {
+  display: flex;
+  align-items: center;
+}
+.cart-wrapper .box-son .label-son .good .good-wrapper .good-image {
+  width: 200rpx;
+  height: 200rpx;
+}
+.cart-wrapper .box-son .label-son .good .good-wrapper .good-text {
+  height: 200rpx;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 20rpx;
+}
+.cart-wrapper .box-son .label-son .good .good-wrapper .good-text .title {
+  flex: 1.5;
+  display: -webkit-box;
+    font-size:28rpx;
+    color:#000000;
+    line-height: 45rpx;
+    word-break: break-all;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp:2;
+    overflow: hidden;
+    text-overflow:ellipsis;
+}
+.cart-wrapper .box-son .label-son .good .good-wrapper .good-text .des {
+  flex: 1;
+}
+.cart-wrapper .box-son .label-son .good .good-wrapper .good-text .price {
+  flex: 0.6;
+}
+.cart-wrapper .box-son .label-son .good .good-wrapper .good-text .des {
+  color: #999;
+}
+
+.cart-wrapper .bottom-wrapper {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-top:1px solid #DEDADA;
+  position:fixed;
+  bottom:0;
+  width:100%;
+  height: 100rpx;
+}
+
+.cart-wrapper .bottom-wrapper .bottom {
+    flex:1.5;
+    height:100%;
+    line-height:100rpx;
+}
+.cart-wrapper .bottom-wrapper .checkAll {
+  flex: 2;
+  margin-left: 40rpx;
+}
+.cart-wrapper .bottom-wrapper .totalPrice {
+  flex: 1.5;
+  color: #CC3366;
+}
+.cart-wrapper .bottom-wrapper .order {
+  flex: 1.5;
+  text-align: center;
+  background: #169BD5;
+  color: #fff;
+}

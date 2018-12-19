@@ -1,0 +1,31 @@
+<!--pages/goods/goodsList.wxml-->
+<view class="container">
+  <input type="text" bindinput="chooseValue" class="areaCode-search" placeholder="输入要搜索的县域" auto-focus/>
+  <view wx:if="{{ searchBoxShow }}" class="areaCode-search-data" >
+    <block wx:for="{{ searchAddress }}" wx:key="*item.code">
+      <text data-text="{{item}}" bindtap="chooseAddress">{{ item.parentName }}{{ item.name }}</text>
+    </block>
+  </view>
+  <text class="areaCode-position-text">当前：{{ currentAddress.name }}</text>
+  <text class="areaCode-position-text">历史访问</text>
+  <view class="areaCode-box">
+      <view class="areaCode-option">
+        <image style="width:32rpx;height:32rpx;" src="../../img/common/myAddress.png"></image> 
+        <text data-text="{{positionAddress}}" bindtap='chooseAddress'>{{ positionAddress.name }}</text>
+      </view>
+    <block wx:for="{{ historyAreaCode }}" wx:key="*this">
+      <view class="areaCode-option">
+        <text data-text="{{item}}" bindtap='chooseAddress'>{{ item.name }}</text>
+      </view>
+    </block>
+  </view>
+  <text class="areaCode-position-text">热门县域</text>
+  <view class="areaCode-box">
+     <block wx:for="{{ hotAreaCode }}" wx:key="*this">
+      <view data-text="{{item}}" class="areaCode-option" bindtap='chooseAddress'>
+        <text>{{ item.name }}</text>
+      </view>
+    </block>
+  </view>
+</view>
+

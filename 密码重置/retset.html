@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>密码重置</title>
+    <meta charset="utf-8">
+</head>
+
+<body>
+</body>
+
+</html>
+<script type="text/javascript">
+function argument(a, b) {
+    console.log(Object.prototype.toString.call(arguments));
+    console.log(arguments instanceof Array);
+    console.log(makeArray(arguments))
+}
+// argument(1,2)
+
+function makeArray(array) {
+    var ret = [];
+    if (array != null) {
+        var i = array.length;
+        if (i == null || typeof array === "string" || array.setInterval) {
+            ret[0] = array;
+        } else {
+            console.log(array)
+            while (i) {
+                ret[--i] = array[i];
+            }
+        }
+    }
+    return ret;
+}
+
+console.log(makeArray('zhangrui'))
+console.log(makeArray(12))
+console.log(makeArray(window))
+console.log(makeArray())
+
+console.log('--------')
+var arr = [];
+Array.prototype.toString.call(arr)
+console.log(Object.prototype.toString.call(arr))
+console.log('------')
+var num = 'ds';
+console.log(isNaN(num))
+
+console.log('-------')
+var b = 0;
+console.log(b !== b)
+
+var obj = 'a';
+console.log(obj - parseFloat(obj))
+console.log('-------')
+console.log('indexedDB' in window)
+
+async function demo() {
+    var a = await null;
+    return a
+}
+// demo().then((res)=>{
+// 	console.log(res)
+// })
+console.log(demo())
+
+function sleep(second) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve(' enough sleep~');
+        }, second);
+    })
+}
+
+function normalFunc() {
+   return 'normalFunc';
+}
+async function awaitDemo() {
+
+    	return 1;
+ 
+}
+var res = awaitDemo();
+
+var a = res.then((data) => {
+	console.log(data)
+	return data
+})
+console.log(a);
+
+</script>

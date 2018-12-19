@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul>
+		<li>1</li>
+		<li>2</li>
+	</ul>
+</body>
+</html>
+<script>
+	// var $ = 123;
+</script>
+<script src="node_modules/_jquery@3.3.1@jquery/dist/jquery.js">
+</script>
+<script>
+	// var arg = {0: "one", 1: "two", 2: "three", 3: "four", xx: "xx", yy: "yy", length: 4};
+	// x = $("li").toArray();
+	// console.log(jQuery.fn.jquery)
+	// $.each(arg,function(key,value){
+	// 	console.log(key+"=>"+value)
+	// 	return false 
+	// });
+	// var z = jQuery.noConflict();
+	// console.log(z)
+	// $('ul').pushStack($('li')).end().css({'height':'100px'});
+
+	// //当参数只有一个对象字面量的时候
+	// $.extend({   // 扩展工具方法
+	// 	aaa: function() {
+	// 		alert(1);
+	// 	},
+	// 	aaa: function() {
+	// 		alert(2);
+	// 	}
+	// });
+
+	// $.fn.extend({  // 扩展jQuery实例方法
+	// 	ccc: function() {
+	// 		alert(3);
+	// 	},    
+	// 	ddd: function() {
+	// 		alert(4);
+	// 	}
+	// });
+
+	// var a = {}, b = {name: 'hello'};
+	// $.extend(true, a, b);  //第一个参数为是否进行深拷贝
+
+	// console.log(a)
+	console.log($.parseHTML('<div><span></span></div><div></div>',document))
+var arr = $.makeArray('1',[0])
+console.log(arr)
+arr = arr.map(function(item){
+	return item*2
+})
+	
+console.log(arr)
+var arr = [1,2];
+arr = $.map(arr, function(item) {
+	return [item+1]
+})
+console.log(arr)
+
+</script>

@@ -1,0 +1,97 @@
+/* 授权 */
+.container-entry {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width:100%;
+}
+
+.img-ganjie {
+  width:166rpx;
+  height:166rpx;
+  margin-top:50%;
+}
+
+.img-ganjie-loading {
+  width:120rpx;
+  height:60rpx;
+}
+
+.user-btn {
+  width:240rpx;
+  height:60rpx;
+  background-color:#62B3FF;
+  color:#fff;
+  font-size:36rpx;
+  line-height:60rpx;
+  margin-top:150rpx;
+}
+
+/* 授权弹框 */
+ .entry-shadow {
+  position: fixed;
+  width:100%;
+  height:100%;
+  background-color:black;
+  opacity: .5;
+  top:0;
+}
+
+.entry-authorization {
+  position:fixed;
+  width:60%;
+  left:16%;
+  top:35%;
+  display:flex;
+  flex-direction: column;
+  z-index: 999;
+  background-color: #fff;
+  padding:35rpx 35rpx;
+  border-radius: 10rpx;
+}
+
+.authorization-title {
+  color:black;
+  font-size:42rpx;
+}
+
+.autorization-content {
+  display:flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  font-size:32rpx;
+  margin:30rpx 0;
+}
+
+.autorization-content img {
+  border:1rpx solid red;
+  width:80rpx;
+  height:80rpx;
+  margin-right:20rpx;
+}
+
+.autorization-info {
+  font-size:32rpx;
+}
+
+.autorization-info text:nth-child(1) {
+  font-size:56rpx;
+}
+
+.autorization-btn {
+  display:flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-top:50rpx;
+}
+
+.autorization-btn button{
+  margin:0;
+  background-color:#fff;
+  line-height: 1;
+  font-size:32rpx;
+}
+
+button::after{ 
+  border: none; 
+} 

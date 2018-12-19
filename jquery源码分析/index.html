@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jquery源码</title>
+</head>
+<body>
+	<form><p><input type="checkbox" /></p></form>
+  <div></div>
+  <div></div>
+</body>
+</html>
+<script src="node_modules/_jquery@3.3.1@jquery/dist/jquery.js"></script>
+<!-- <script type="text/javascript" src="demo.js"></script>
+<script type="text/javascript" src="jquery.js"></script> -->
+<script>
+// console.log($.fn.pushStack($('p')))
+// $('p').slice(0,1).css({
+// 	'background': 'red'
+// })
+// console.log($('p').slice(0,1))
+// var arr = [1,2,3];
+// $.inArray()
+// var arr = [];
+// var arr1 = [1];
+// var arr3 = {"0":0,"1":1,"length":2};
+
+// // $.map(arr)
+// // $.map(arr1)
+// $.map(arr3,function(item,index) {
+// 	return item*2+index;
+// })
+// $('div').map(function(value,i){
+// 	console.log(value,i)
+// })
+
+console.log($);
+$.noConflict();
+console.log('释放后: ' + $);
+console.log('释放后: ' + jQuery);
+var arr = [1,2];
+var val = jQuery.each(arr, function(i, val) {
+
+})
+console.log(val)
+
+</script>

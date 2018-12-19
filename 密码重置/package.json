@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "easyui": "^8.0.0",
+    "jquery": "^3.3.1"
+  }
+}

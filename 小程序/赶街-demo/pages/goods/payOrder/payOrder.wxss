@@ -1,0 +1,126 @@
+/* 订单支付 */
+page {
+  display: block;
+  min-height: 100%;
+  background-color: #F0F5F9;
+}
+
+.order-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  background-color:#fff;
+  margin-bottom:20rpx;
+}
+
+.order-title {
+  height:70rpx;
+  line-height: 70rpx;
+  padding:0 20rpx;
+  font-size:32rpx;
+  color:#3AACFF;
+  display:flex;
+  flex-direction: row;
+}
+
+.order-address {
+  padding:30rpx 20rpx;
+  font-size:28rpx;
+  display:flex;
+  flex-direction: column;
+}
+
+.order-goods {
+  padding:20rpx 20rpx;
+  display:flex;
+  flex-direction: column;
+}
+
+.order-second-title {
+  font-size:32rpx;
+  height:60rpx;
+  line-height: 60rpx;
+  border-bottom:1rpx solid #F2F2F2;
+}
+
+.order-goods-info {
+  display:flex;
+  flex-direction: row;
+  margin-top:20rpx;
+}
+
+.order-goods-info image {
+  width:150rpx;
+  height:150rpx;
+}
+
+.order-goods-name {
+  font-size:28rpx;
+  margin-left:20rpx;
+  display:flex;
+  flex-direction: column;
+}
+
+.order-goods-name text:nth-child(1){
+  margin-top:10rpx;
+}
+
+.order-goods-name text:nth-child(2){
+  margin-top:20rpx;
+  color:#A8A8A8;
+}
+
+.order-time {
+  display:flex;
+  flex-direction: column;
+  margin-top:20rpx;
+}
+
+.order-time text {
+  font-size:28rpx;
+  color:#C0C0C0;
+  height:60rpx;
+  line-height: 50rpx;
+}
+
+.order-just {
+  display:flex;
+  flex-direction: row;
+  font-size: 28rpx;
+  height:60rpx;
+}
+
+.bet {
+  justify-content: space-between;
+}
+
+.end {
+  justify-content: flex-end;
+}
+
+.order-submit {
+  position:fixed;
+  bottom:0;
+  left:0;
+  width:100%;
+  height:100rpx;
+  line-height: 100rpx;
+  display:flex;
+  flex-direction: row;
+}
+
+.order-submit view {
+  width:50%;
+  text-align: center;
+  font-size:32rpx;
+}
+
+.order-submit view:nth-child(1) {
+  background-color: #fff;
+}
+
+.order-submit view:nth-child(2) {
+  background-color: #1D9DFF;
+  color:#fff;
+}

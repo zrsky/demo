@@ -1,0 +1,44 @@
+<view class="container">
+	<view class="main">
+		<view class="vertial-text-list"  bindtap="changeMenu">
+			<text wx:for="{{leftMenu}}"  wx:key="item" data-index="{{index}}" id="{{item.id}}" class="{{flag[index]?'hover':''}}">{{item.name}}</text>
+		</view>
+	    <view class="vertical-img-text">
+			<view class="img-text-box" wx:for="{{rightContent}}"  wx:key="item">
+			  <view class="img-text-item">
+				<view class="list-left">
+					<image  src="{{item.img}}"/>
+				</view>
+				<view class="list-middle">
+					<text class="list-item-title">{{item.name}}</text>
+					<text class="list-item-info">{{item.info}}</text>
+				</view>
+				<view class="list-right">
+					<view>
+						<text>￥</text>
+						<text>{{item.price}}</text>
+					</view>
+					<view class="btn-group">
+						<text class="click-btn" data-index="{{index}}" bindtap="btnNumDown">-</text>
+						<text class="btn-change-text" >{{item.btnNum}}</text>
+						<text class="click-btn" data-index="{{index}}" bindtap="btnNumUp">+</text>
+					</view>
+				</view>
+			  </view>	
+			</view>
+        </view>
+	</view>
+	<view class="icon-text-btn">
+	<view>
+		<image src="../../images/index/shopping.png"/>
+		<text class="right-top-icon">{{totalNum}}</text>
+	</view>
+	<view class="middle-style">
+		<text>￥</text>
+		<text>{{totalPrice}}</text>
+	</view>
+	<view>
+		<button class="pink-btn">确认订单</button>
+	</view>
+</view>
+</view>

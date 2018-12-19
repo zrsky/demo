@@ -1,0 +1,42 @@
+<!-- 地址列表 -->
+<view class="addressList">
+  <block wx:for="{{ addressList }}" wx:key="*this">
+    <view class="addressList-item">
+       <view wx:if="{{ !isCenter }}"  data-text="{{ item.addressId }}" bindtap='jumpConfirmOrders'>
+        <text>{{ item.name }}</text>
+        <text>{{ item.telephone }}</text>
+      </view>
+      <view wx:if="{{ !isCenter }}"  data-text="{{ item.addressId }}" bindtap='jumpConfirmOrders'>
+        <text class="addressList-isDefault" wx:if="{{ item.isDefault }}">[默认地址]</text>
+        <text>{{ item.provinceName }}{{ item.cityName }}{{ item.countyName }}</text>
+      </view> 
+      <view wx:if="{{ isCenter }}" data-text="{{ item.addressId }}" bindtap='jumpPersonal'>
+        <text>{{ item.name }}</text>
+        <text>{{ item.telephone }}</text>
+      </view>
+      <view wx:if="{{ isCenter }}" data-text="{{ item.addressId }}" bindtap='jumpPersonal'>
+        <text class="addressList-isDefault" wx:if="{{ item.isDefault }}">[默认地址]</text>
+        <text>{{ item.provinceName }}{{ item.cityName }}{{ item.countyName }}</text>
+      </view>
+      <view class="addressList-action">
+        <view>
+          <radio-group wx:if="{{ !item.isDefault }}">
+            <radio checked="{{ item.isDefault }}" data-text="{{ item }}" bindtap='chooseRadio' color="#1D9DFF"></radio>设为默认
+          </radio-group>
+        </view>
+        <view>
+          <image src="../../../img/tabBar/edit.png" data-text="{{ item }}" bindtap='jumpAddressUpdate'></image>
+          <image src="../../../img/tabBar/delete.png" data-text="{{ item }}" bindtap='deleteAddress'></image>
+        </view>
+      </view>
+    </view>
+  </block>
+  <view style="width:100%;height:120rpx;background-color:#F0F5F9;"></view>
+  <view class="addressList-add" bindtap='jumpAddressAdd'>
+      + 添加地址
+  </view>
+  <!-- <view class="addressList-back" bindtap='jumpAddressBack'>
+      返回订单
+  </view> -->
+</view>
+

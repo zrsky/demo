@@ -1,0 +1,18 @@
+/* 省 */
+.address-province {
+  display:flex;
+  flex-direction: column;
+}
+
+.address-province text{
+  height:100rpx;
+  line-height: 100rpx;
+  display:flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  border-bottom:1rpx solid #E7E7E7;
+  font-size:32rpx;
+  padding-left:20rpx;
+}
+
+

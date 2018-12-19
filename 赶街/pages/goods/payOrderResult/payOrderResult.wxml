@@ -1,0 +1,21 @@
+<view class='payMoney'> 
+  <text class='rmb'>¥</text>
+  <text>{{orderInfo.buyerPayAmount}}</text>
+</view>
+<view class='btnGroup'>
+  <button bindtap='goBuy'>继续购物</button>
+  <text></text>
+  <button bindtap='handelTodetail' data-tradeNo="{{orderInfo.tradeNo}}" data-orderNo="{{orderInfo.orderNo}}">查看订单</button>
+</view>
+<view class='order mt20'>
+  <view class='orderPic br'>
+    <image src='{{orderInfo.imgUrl}}'></image>
+  </view>
+  <view class='orderInfo'>
+    <view class='title'>{{orderInfo.title}}</view>
+    <view class='standard'>
+      <text>规格: {{orderInfo.standard}}</text>
+      <text class='num'>X{{orderInfo.num}}</text>
+    </view>
+  </view>
+</view>

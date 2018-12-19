@@ -1,0 +1,17 @@
+
+<view class="user-info-box" style="height:528rpx;width:100%;position:relative;text-align:center">
+	<image  src="../../images/my/top-bg.gif" style="width:100% !important;height:340rpx !important"></image>
+	<text class="name-box" style="margin-top:48rpx;font-size:30rpx;color:#999;">{{name}}</text>
+	<button  wx:if="{{canIUse}}" class="{{showFlag?'showFlag':''}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">点击登录</button>
+</view>
+<image class="header" src="{{headerImg}}" ></image>
+<view class="tel-info-box" style="margin-left:30rpx;font-size:36rpx;width:690rpx;height:80rpx;line-height:80rpx;border:1rpx solid #f5f5f5;background-color:#f5f5f5;border-radius:10rpx;display:flex;justify-content:space-between;">
+	<view style="flex: 1;text-align: center;">
+		<image src="../../images/my/tel.gif" style="height: 70rpx;width: 70rpx;"></image>
+	</view>
+	<view style="flex:1;word-spacing:4rpx;color: #999999;text-align: center;">联系客服
+	</view>
+	<view style="flex:1;color:#fb7171;text-align: center;">(10:00-19:00)</view>
+
+</view>
+

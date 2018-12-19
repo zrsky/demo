@@ -1,0 +1,284 @@
+/* pages/goods/home/home.wxss */
+.banner {
+  width:100%;
+  position: relative;
+}
+
+.loading-top {
+  display:flex;
+  flex-direction: row;
+  justify-content: space-around;
+  position: fixed;
+  top:0;
+  left:0;
+  width:100%;
+}
+
+.loading-bottom {
+  display:flex;
+  flex-direction: row;
+  justify-content: space-around;
+  position: fixed;
+  bottom:0;
+  left:0;
+  width:100%;
+}
+
+.img-ganjie-loading {
+  width:180rpx;
+  height:100rpx;
+}
+
+.address {
+  display: -webkit-box;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  font-size: 28rpx;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:1;
+  color:#fff; 
+}
+
+.banner-image {
+  width:100%;
+  min-height: 236rpx;
+  height:236rpx;
+}
+
+.areacode {
+  position:absolute;
+  left:25rpx;
+  top:25rpx;
+  width:130rpx;
+  height:60rpx;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.areacode text {
+  font-size:32rpx;
+  float:left; 
+  width:96rpx;
+}
+
+.areacode image {
+  width:22rpx;
+  height:25rpx;
+  float:left;
+  margin-top:5rpx;
+  margin:5rpx 0 0 5rpx;
+
+}
+
+/* 分类筛选 */
+.goods-category {
+  font-size:34rpx;
+  /* display:flex; */
+  padding:2rpx 0;
+}
+
+
+.goods-category-firstItem {
+  flex-shrink:0;
+  width:15%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.goods-category-firstItem image {
+  width: 90rpx;
+  height: 90rpx;
+}
+.goods-category-firstItem view{
+  padding:20rpx 0;
+  /* border:1px solid red; */
+}
+.scroll-header{
+  /* width:85%; */
+  display: flex;
+  white-space: nowrap;
+  padding: 20rpx 0;
+}
+
+.scroll-header .category-wrapper {
+  display: flex;
+  text-align: center;
+}
+
+.scroll-header .category-wrapper + .category-wrapper {
+  margin-top: 20rpx;
+}
+
+.scroll-header .category-item {
+  /* display: inline-block; */
+  padding:0rpx 20rpx;
+  min-width:144rpx;
+  display:inline-block;
+  /* padding:20rpx 0; */
+  border:1px solid #fff;
+  flex: 1;
+  font-size: 26rpx;
+}
+
+.scroll-header .category-item image {
+  width: 80rpx;
+  height: 80rpx;
+}
+
+/* progress */
+.progress-wrapper {
+   /* margin-top: 287rpx; */
+}
+
+.progress-wrapper .progress-outter {
+  width:100rpx;
+  background:#ccc;
+  border-radius:40rpx;
+  height: 6rpx;
+  margin:0 auto;
+  position: relative;
+}
+
+.progress-wrapper .progress-inner {
+  width:50rpx;
+  height:100%;
+  background:#79CEFF;
+  border-radius:40rpx;
+  position:absolute;
+  top:0;
+}
+
+
+/* 去除滚动条 */
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+.category-hover {
+  color:#1D9DFF;
+  border-bottom:1rpx solid #1D9DFF!important;
+}
+
+.board-list {
+   display: flex;
+   flex-direction: column;
+   margin-bottom:100rpx;
+}
+
+.board-item {
+  display: flex;
+  flex-direction: row;
+  height:200rpx;
+  padding: 30rpx;
+  border-bottom:1rpx solid #e2e2e2;
+}
+
+.board-item navigator{
+  display:flex;
+  flex-wrap:nowrap;
+}
+
+.board-image {
+  width:200rpx;
+  height:200rpx;
+}
+
+.board-image image {
+  width:200rpx;
+  max-height:200rpx;
+}
+
+.board-info {
+  display:flex;
+  flex:1;
+  flex-direction: column;
+  font-size:32rpx;
+  margin-left:20rpx;
+}
+
+.board-info-name {
+    display: -webkit-box;
+    word-break: break-all;
+    text-overflow: ellipsis;
+    font-size: 34rpx;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp:1;
+    height:40rpx;
+    line-height:40rpx;
+}
+
+.board-info-sellPoint {
+    display: -webkit-box;
+    word-break: break-all;
+    text-overflow: ellipsis;
+    font-size: 28rpx;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp:1;
+    height:50rpx;
+    line-height: 50rpx;
+    color:#999999;
+}
+
+ .board-info-sku-box {
+    height:52rpx;
+    line-height:52rpx;
+}
+
+.board-info-sku {
+    border:1rpx solid #DAEFFF;
+    color:#1D9DFF;
+    border-radius: 4rpx;
+    margin-right:20rpx;
+    padding:4rpx 8rpx;
+    font-size:24rpx;
+} 
+
+.board-info-priceOrSales {
+    height:58rpx;
+    line-height:58rpx;
+}
+.board-info-price {
+    color:#F7442C;
+    font-size:45rpx;
+}
+
+.board-info-price text {
+   font-size:32rpx;
+}
+
+.board-info-sales {
+    color:#A0A0A0;
+    font-size:28rpx;
+    margin-left:20rpx;
+}
+
+.goods-bottom {
+  border-top:1rpx solid #DBDCDE;
+  width:100%;
+  height:100rpx;
+  display:flex;
+  position:fixed;
+  bottom:0;
+  left:0;
+  background-color:#fff;
+}
+
+.goods-bottom view{
+  display:flex;
+  flex:1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size:24rpx;
+}
+
+.goods-bottom view image{
+  width:48rpx;
+  height:48rpx;
+}

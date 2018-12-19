@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>代理模式</title>
+</head>
+<body>
+        代理模式是一种非常有意义的模式，在生活中可以找到很多代理模式的场景。比如，明星都
+        有经纪人作为代理。如果想请明星来办一场商业演出，只能联系他的经纪人。经纪人会把商业演
+        出的细节和报酬都谈好之后，再把合同交给明星签。
+        代理模式的关键是，当客户不方便直接访问一个对象或者不满足需要的时候，提供一个替身
+        对象来控制对这个对象的访问，客户实际上访问的是替身对象。替身对象对请求做出一些处理之
+        后，再把请求转交给本体对象
+</body>
+</html>
+<script>
+    //小明送花
+    var Flower = function() {
+
+    }
+    var xiaoming = {
+        sendFlower: function(target) {
+            var flower = new Flower();
+            target.receiveFlower(flower)
+        }
+    }
+    var A = {
+        receiveFlower: function(flower) {
+            console.log('收到花');
+        }
+    };
+
+
+    //小明送花代理模式
+    var Flower = function() {
+
+}
+var xiaoming = {
+    sendFlower: function(target) {
+        var flower = new Flower();
+        target.receiveFlower(flower)
+    }
+}
+var B = {
+    receiveFlower: function(flower) {
+        A.receiveFlower(flower);
+    }
+}
+var A = {
+    receiveFlower: function(flower) {
+        console.log('收到花');
+    }
+};
+
+xiaoming.sendFlower(B);
+
+/* 现在我们改变故事的背景设定，假设当 A 在心情好的时候收到花，小明表白成功的几率有
+60%，而当 A 在心情差的时候收到花，小明表白的成功率无限趋近于 0。
+小明跟 A 刚刚认识两天，还无法辨别 A 什么时候心情好。如果不合时宜地把花送给 A，花
+被直接扔掉的可能性很大，这束花可是小明吃了 7 天泡面换来的。
+但是 A 的朋友 B 却很了解 A，所以小明只管把花交给 B，B 会监听 A 的心情变化，然后选
+择 A 心情好的时候把花转交给 A，代码如下： */
+var xiaoming = {
+    sendFlower: function(target) {
+        var flower = new Flower();
+        target.receiveFlower(flower)
+    }
+}
+var B = {
+    receiveFlower: function(flower) {
+        A.listenGoodMood(function() {
+            A.receiveFlower(flower);
+        })
+    }
+}
+var A = {
+    receiveFlower: function(flower) {
+        console.log('收到花');
+    },
+    listenGoodMood: function(fn) {
+        setTimeout(function() {
+            fn()
+        }, 1000);
+    }
+};
+
+xiaoming.sendFlower(B);
+
+//虚拟代理实现图片懒加载
+
+var myImage = (function() {
+    var imgNode = document.createElement('img');
+    document.body.appendChild(imgNode);
+    return {
+        setSrc: function(src) {
+            imgNode.src = src;
+        }
+    }
+})()
+
+var proxyImage = (function() {
+    var img = new Image;
+    img.onload = function() {
+        myImage.setSrc(this.src);
+    }
+    return {
+        setSrc: function(src) {
+            myImage.setSrc('');
+            img.src = src;
+        }
+    }
+})()
+proxyImage.setSrc( 'http:// imgcache.qq.com/music/photo/k/000GGDys0yA0Nk.jpg' ); 
+
+//缓存代理
+var mult = function() {
+    var a = 1;
+    for(var i = 0; i < arguments.length; i++) {
+        a = a*arguments[i];
+    }
+    return a;
+}
+
+var proxyMult = (function() {
+    var cache = {};
+    return function() {
+        var args = [].join.call(arguments, ',');
+        if(args in cahce) {
+            return cache[args];
+        }
+        
+       return cache[args] = mult(args);
+    //    return cache[args] = mult.apply(this, arguments)
+    }
+})()
+
+proxyMult(1,2,3,4) // 24
+proxyMult(1,2,3,4) // 24
+
+
+// 代理模式包括许多小分类，在 JavaScript 开发中最常用的是虚拟代理和缓存代理。虽然代理
+// 模式非常有用，但我们在编写业务代码的时候，往往不需要去预先猜测是否需要使用代理模式。
+// 当真正发现不方便直接访问某个对象的时候，再编写代理也不迟。
+
+</script>

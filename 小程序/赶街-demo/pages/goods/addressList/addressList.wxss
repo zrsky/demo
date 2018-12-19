@@ -1,0 +1,95 @@
+/* 选择收货地址 */
+page {
+  display: block;
+  min-height: 100%;
+  background-color: #F0F5F9;
+}
+
+.addressList {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+
+.addressList-item {
+  display:flex;
+  flex-direction: column;
+  font-size:32rpx;
+  padding:0 20rpx;
+  border-bottom:1rpx solid #F3F7FA; 
+  margin-bottom:40rpx;
+}
+
+.addressList-item:nth-child(last) {
+  margin-bottom:120rpx;
+}
+
+.addressList-item view {
+  width:100%;
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height:80rpx;
+  line-height: 80rpx;
+}
+
+.addressList-item view:nth-child(2) {
+  justify-content: flex-start;
+}
+
+.addressList-action view:nth-child(2){
+  display:flex;
+  flex-direction: row;
+  justify-content:flex-end;
+  color:#999999;
+}
+
+.addressList-action view image{
+  width:50rpx;
+  height:50rpx;
+  float:right;
+  margin:15rpx 40rpx 0 0;
+} 
+
+radio {
+  transform:scale(0.8
+  
+  );
+}
+
+.addressList-isDefault {
+  color:#12A5FD;
+  font-size:30rpx;
+}
+
+.addressList-action view:nth-child(1){
+  justify-content: flex-start;
+}
+
+.addressList-add {
+  position: fixed;
+  left:0;
+  bottom:0;
+  width:100%;
+  text-align: center;
+  height:100rpx;
+  line-height: 100rpx;
+  background: linear-gradient(to right,#15AAFF,#0088F1);
+  color:#fff;
+  font-size:34rpx;
+}
+
+.addressList-back {
+  position: fixed;
+  right:0;
+  bottom:0;
+  width:30%;
+  text-align: center;
+  height:100rpx;
+  line-height: 100rpx;
+  color:#0E9FFA;
+  font-size:34rpx;
+}

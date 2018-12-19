@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="div">
+        eval即是js关键字也是windows下的一个属性   43集 对属性的操作  attr  prop  data数据缓存  48出队入队
+        <span></span>
+    </div>
+</body>
+</html>    
+<script src="../node_modules/_jquery@3.3.1@jquery/dist/jquery.js"></script>
+<script>
+    var str = '1';
+    alert(typeof(str))
+    console.log(void 1+2)
+    console.log($('span',$('#div')).html('span'))            
+    console.log($('#div').find('span'))
+    var div = document.createElement('div');
+    div.innerHTML = '外层div'
+    var marginDiv = div.appendChild(document.createElement('div'));
+    marginDiv.innerHTML = '我是内层div'
+    console.log(marginDiv)
+    console.log(111)
+    var arr = {
+        name: 1
+    };
+    function b() {
+        this.name = 2
+    }
+    b.prototype.say = function() {
+        console.log('    ')
+    }
+    var bb = new b()
+        Object.defineProperty(bb, 'eat', {
+            configurable: false,
+            writable: true,
+            enumerable: false,
+            value: '张三'
+        })
+    console.log(b.prototype.isPrototypeOf(bb));
+    for(var i in bb){
+        console.log(111)
+	    console.log(i)
+    }
+
+
+    function test() {
+        // var val = eval => window.eval
+        eval('var a = 1'); // 当做关键字使用
+    }
+
+    //map 映射新数组
+
+
+    console.log([].concat([1,2]))
+</script>   

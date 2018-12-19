@@ -1,0 +1,48 @@
+<!--pages/goods/cart/cart.wxml-->
+<view class="cart-wrapper">
+  <view class="container empty" wx:if="{{cartData.length === 0}}" style="z-index: 9;">
+    <view class="empty-text">购物车为空，快到商城挑选一些商品吧！</view>
+    <button class="weui-btn mini-btn empty-btn" size="mini" bindtap="goIndex">立即前往挑选</button>
+  </view>
+  <scroll-view scroll-y style="margin-bottom: 100rpx;" bindscrolltolower="lower" bindscrolltolower="lower" bindscroll="scroll" scroll-top="{{scrollTop}}">
+    <checkbox-group bindchange="checkboxChange">
+      <block wx:for="{{cartData}}" wx:key='index' wx:for-index="idx">
+        <view class="box">
+          <label>
+            <checkbox class="checkbox" value="{{item.id}}" checked="{{item.checked}}" data-index="{{idx}}" bindtap="change" />{{item.title}}
+            <checkbox-group bindchange="checkboxChange1" class="box-son" data-parentIdx="{{idx}}">
+              <label class="label-son" wx:for="{{item.children}}" wx:for-item="son" wx:key='index' wx:for-index="idx">
+                <checkbox class="checkbox-son" value="{{son.id}}" checked="{{son.checked}}" data-index="{{idx}}" bindtap="change1" />
+                <view class="good">
+                  <view class="good-wrapper">
+                    <image class="good-image" src="https://goss.veer.com/creative/vcg/veer/800water/veer-154450561.jpg"></image>
+                    <view class="good-text">
+                      <text class="title">{{son.title}}</text>
+                      <text class="des">{{son.des}}</text>
+                      <text class="price">￥{{son.price}}</text>
+                    </view>
+                  </view>
+                </view>
+              </label>
+
+            </checkbox-group>
+          </label>
+        </view>
+      </block>
+    </checkbox-group>
+
+  </scroll-view>
+  <view class="bottom-wrapper">
+    <view class="bottom checkAll">
+      <label>
+        <checkbox checked='{{checkAll}}' bindtap="checkAll"></checkbox>全选
+      </label>
+    </view>
+    <view class="bottom totalPrice">
+      <text>合计： ￥352</text>
+    </view>
+    <view class="bottom order">
+      <text>下单</text>
+    </view>
+  </view>
+</view>

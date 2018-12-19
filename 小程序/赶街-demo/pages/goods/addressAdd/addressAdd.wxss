@@ -1,0 +1,56 @@
+/* 添加收货地址 */
+page {
+  display: block;
+  min-height: 100%;
+  background-color: #F0F5F9;
+}
+
+.addressAdd {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+
+.addressForm input{
+  border-bottom:1rpx solid #EFEFEF;
+  height:100rpx;
+  font-size:32rpx;
+  padding:0 20rpx;
+}
+
+.addressForm text{
+  font-size:24rpx;
+  padding:0 20rpx;
+  color:#F53939;
+}
+
+.placeholder {
+  color:#A8A8A8;
+  font-size:32rpx;
+}
+
+.address-default {
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding:2%;
+  margin-top:20rpx;
+  background-color: #fff;
+}
+
+.address-bottom {
+  position:fixed;
+  bottom:0;
+  left:0;
+  width:100%;
+  color:#fff;
+  text-align: center;
+  height:130rpx;
+  line-height: 130rpx;
+  font-size:38rpx;
+  background: linear-gradient(to right,#15AAFF,#0088F1);
+}
+

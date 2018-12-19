@@ -1,0 +1,58 @@
+<!-- personal page -->
+<view class='top'>
+  <view class="personalPhoto">
+    <image class='photo' src="{{userInfo.avatarUrl}}" mode='widthFix'></image>
+  </view>
+  <view class="personalName">
+    <text>{{userInfo.nickName}}</text>
+    </view>
+</view>
+<view class='orderInfo'>
+  <view class='allorder'>
+    <text>我的订单</text>
+    <view class='more' bindtap='handelOrder' data-id='-1'>
+      <text>全部订单</text>
+      <image src='../../../img/common/arrowRight.png' mode='widthFix' class='arrowRight'></image>
+    </view>
+  </view>
+  <view class='orderTab'>
+    <view class='waitPay' bindtap='handelOrder' data-id="1">
+      <image src='../../../img/personal/waitPay.png' mode='widthFix'></image>
+      <text>待付款</text>
+      <text class='num' wx:if="{{pendingPaymentCount != 0}}">{{pendingPaymentCount}}</text>
+    </view>
+    <view class='waitSend' bindtap='handelOrder' data-id="2">
+      <image src='../../../img/personal/waitSend.png' mode='widthFix'></image>
+      <text>待发货</text>
+      <text class='num' wx:if="{{pendingDeliveredCount != 0}}">{{pendingDeliveredCount}}</text>
+    </view>
+    <view class='waitReceive' bindtap='handelOrder' data-id="3">
+      <image src='../../../img/personal/waitReceive.png' mode='widthFix'></image>
+      <text>待收货</text>
+      <text class='num' wx:if="{{deliveredCount != 0}}">{{deliveredCount}}</text>
+    </view>
+    <view class='afterSale' bindtap='handelOrder' data-id="4">
+      <image src='../../../img/personal/afterSale.png' mode='widthFix'></image>
+      <text>售后</text>
+      <text class='num' wx:if="{{afterSaleCount != 0}}">{{afterSaleCount}}</text>
+    </view>
+  </view>
+</view>
+<view class='line'>
+  <text></text>
+  <view></view>
+</view>
+<view class='address'>
+  <image src='../../../img/personal/address.png' mode='widthFix'></image>
+  <view bindtap='addressManage'>
+    <text>地址管理</text>
+    <image src='../../../img/common/arrowRight.png' mode='widthFix' class='arrowRight'></image>
+  </view>
+</view>
+<view class='service'>
+  <image src='../../../img/personal/service.png' mode='widthFix'></image>
+  <view bindtap='callService'>
+    <text>联系客服</text>
+    <image src='../../../img/common/arrowRight.png' mode='widthFix' class='arrowRight'></image>
+  </view>
+</view>

@@ -1,0 +1,149 @@
+/* 商品详情 */
+.goodsDetail-main {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+swiper {
+  height:750rpx;
+}
+ .slide-image {
+  width: 100%;
+  height: 750rpx;
+} 
+.goodsDetail {
+  padding:30rpx 24rpx;
+  color: #333;
+}
+.title {
+  font-size: 36rpx;
+  font-weight: 600;
+}
+.desc {
+  font-size: 28rpx;
+  margin-top: 10rpx;
+}
+.commissionIntr {
+  display: flex;
+  height: 50rpx;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 26rpx;
+  margin-top: 30rpx;
+}
+.commissionIntr view:first-child {
+  color: #DC0303;
+}
+.commissionIntr view:last-child {
+  color: #999;
+}
+.btnGroup {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  width: 100%;
+  height: 100rpx;
+  border-top: 1rpx solid #DBDBDB;
+}
+.call {
+  width: 150rpx;
+  text-align: center;
+  background: #fff;
+}
+.call image {
+  width: 36rpx;
+  height: 36rpx;
+  margin-top:10rpx;
+}
+.call .txt {
+  line-height: 25rpx;
+} 
+.call text {
+  font-size: 20rpx;
+}
+.apply,.share {
+  flex: 1;
+  padding: 0;
+  margin: 0;
+  border-radius: 0;
+  font-size: 30rpx;
+  line-height: 100rpx;
+}
+.apply {
+  color: #fff;
+  background: linear-gradient(to right,#49B7FF,#2672FF);
+  border-left: 1rpx solid #DBDBDB;
+}
+.share {
+  color: #fff;
+  background: linear-gradient(to right,#49B7FF,#2672FF);
+}
+.wxParse-p image{
+  width: 100%!important;
+  vertical-align: middle;
+}
+.goodsDetail-bottom {
+  display:flex;
+  flex-direction: row;
+  width:100%;
+  height:100rpx;
+  position:fixed;
+  left:0;
+  bottom:0;
+  justify-content: flex-start;
+}
+
+.goodsDetail-bottom-cont{
+  border-top:1rpx solid #E3E3E3;
+  background-color:#fff;
+  display:flex;
+  flex-direction: column;
+  font-size:18rpx;
+  justify-content: center;
+  align-items: center;
+}
+
+.goodsDetail-bottom-cont text{
+  margin-top:8rpx;
+}
+
+.goodsDetail-bottom-cont image{
+  width:36rpx;
+  height:36rpx;
+}
+.goodsDetail-bottom-buy{
+  border-top:1rpx solid #1D9DFF;
+  background-color:#1D9DFF;
+  text-align: center;
+  line-height:100rpx;
+  color:#fff;
+  font-size:34rpx;
+  background:linear-gradient(to right,#15AAFF,#0088F1);
+}
+
+.personal{
+  width:20%; 
+}
+
+.personal-buy{
+  width:80%;
+}
+
+.wx {
+  width:20%; 
+}
+
+.wx-buy {
+  width:60%; 
+}
+
+.app {
+  width:20%; 
+}
+
+.app-buy {
+  width:40%; 
+}
