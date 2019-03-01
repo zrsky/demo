@@ -37,4 +37,18 @@ var a = objFactory(Persion, 'zhangrui'); // => var a = new Persion('zhangrui)
 a.getName()
 
 
+
+var objFactory = function() {
+    var obj = {}; // ==> var obj = new Object()
+
+    var constructor = [].shift.call(arguments);
+
+    obj.__proto__ = constructor.prototype;
+
+    var ret = constructor.apply(obj, arguments);
+
+    return typeof ret === 'object' ? ret || obj : obj;
+}
+
+
 </script>

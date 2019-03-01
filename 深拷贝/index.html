@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>深拷贝</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    function deepClone(obj) {
+        var copyObj = Array.isArray(obj) ? [] : {};
+        for(var i in obj) {
+            if(obj.hasOwnProperty(i)) {
+                if(obj[i] && typeof obj[i] == 'object') {
+                    copyObj[i] = deepClone(obj[i]);
+                } else {
+                    copyObj[i] = obj[i];
+                }
+            }
+        }
+        return copyObj;
+    }
+
+
+    var obj1 = {name: 'zhangrui', age: 23};
+    var obj2 = deepClone(obj1);
+
+    obj2.age = 19;
+    console.log(obj1)
+    console.log(obj2)
+
+
+    
+</script>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue组件化解析</title>
+</head>
+<body>
+    <div id="app">
+        <hello-component :message="message"></hello-component>
+    </div>
+</body>
+</html>
+<!-- 第一种方式 -->
+<!-- <script type="text/template" id="myComponent">
+    <h1>vue组件化解析</h1>
+</script> -->
+<!-- 第二种方式 -->
+<!-- <template id="myComponent">
+    <h1>组件化template标签</h1>
+
+</template> -->
+<template id="myComponent">
+    <h1>{{message}}</h1>
+</template>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    // 第一种金额第二种方式
+    // Vue.component('hello-component', {
+    //     template: "#myComponent"
+    // })
+
+
+ var child = {
+     props: ['message'],
+     template: '#myComponent',
+ }
+
+    new Vue({
+        el: '#app',
+        data: {
+            message: '组件化111'
+        },
+        components: {
+            'hello-component': child
+        }
+    })
+</script>

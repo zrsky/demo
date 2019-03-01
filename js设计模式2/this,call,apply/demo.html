@@ -158,4 +158,83 @@ console.log(obj)
 
 // var bbb = aaa.bind(document.getElementById('div1'))
 
+
+document.getElementById = (function(func){
+    return function() {
+        return func.apply(document, arguments)
+    }
+}(document.getElementById))
+
+var obj1 = {
+    name: 'zhangrui'
+}
+var obj2 = {
+    name: 'xiaohuangyang'
+}
+
+var getName = function() {
+    console.log(this.name)
+}
+
+getName.apply(obj1)
+getName.apply(obj2)
+
+
+Function.prototype.bind = function() {
+    var context = [].shift.apply(arguments),
+        args = [].slice.apply(arguments),
+        self = this;
+    return function() {
+        self.apply(context, [].slice.apply(arguments).concat(args))
+    }
+}
+
+
+
+Function.prototype.bind = function() {
+    var context = [].shift.apply(arguments),
+        args = [].slice.apply(arguments),
+        self = this;
+
+    return function() {
+        self.apply(context, args.concat([].slice.apply(arguments)))
+    }
+}
+
+
+function fib(n) {
+    if(n === 1 || n === 2) return n - 1;
+    return fib(n-1) + fib(n-2);
+}
+
+
+let obj12 = {
+    '1' : 'a',
+    '2' : 'b',
+    length: 2
+}
+
+Array.prototype.push.call(obj12);
+
+console.log(obj12)
+
+
+function aaa() {
+
+}
+aaa.prototype.say = function() {
+    console.log('111')
+}
+
+aaa.prototype.arr = [1,2]
+
+var a = new aaa();
+var b = new aaa();
+a.say = function() {
+    console.log('222')
+}
+b.say()
+a.arr = [2,3]
+console.log(b.arr)
+console.log(a.arr)
 </script>

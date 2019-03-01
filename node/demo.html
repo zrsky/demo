@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    const foo = 1;
+    (function foo() {
+        foo = 10;
+        console.log(foo)
+    }())
+
+    function instance() {
+
+    }
+    var ins = new instance();
+    console.log(ins instanceof instance);
+    console.log(ins.__proto__ === ins.constructor.prototype);
+</script>

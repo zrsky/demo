@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>proxy</title>
+</head>
+
+<body>
+    <input type="text" id="input">
+    <textarea name="" id="text" cols="30" rows="10"></textarea>
+</body>
+
+</html>
+<script>
+    let input = document.querySelector('#input');
+    let text = document.querySelector('#text');
+    // let obj = {
+    //     a: 2
+    // };
+    // let p = new Proxy(obj, {
+    //     get: function(target, prop) {
+    //         return target[prop];
+    //     },
+    //     set: function(target, prop, value) {
+    //         target[prop] = value;
+    //     }
+    // });
+
+    // console.log(p.a);
+
+    // var data = {
+    //     text: 'proxy实现双向数据绑定'
+    // }
+    // const handler = {
+    //     set: function (target, prop, value) {
+    //         if (prop === 'text') {
+    //             target[prop] = value
+    //             text.value = value;
+    //             input.value = value;
+    //         } else {
+    //             return false;
+    //         }
+    //     }
+    // }
+
+    // const p = new Proxy(data, handler);
+
+    // input.addEventListener('input', function (e) {
+    //     p.text = e.target.value;
+    // }, false)
+
+    // let proto = new Proxy({}, {
+    //     get(target, propertyKey, receiver) {
+    //         console.log('GET ' + propertyKey);
+    //         return target[propertyKey];
+    //     }
+    // });
+
+    // let obj = Object.create(proto);
+    // obj.xxx // "GET xxx"
+
+
+
+var dataObj = {
+    name: 'zhangrui'
+}
+
+let hanlder1 = {
+    set: function(target, prop, value){
+        if(prop == 'name') {
+            target[prop] = value;
+            text.value = value;
+            input.value = value
+        }
+    }
+}
+
+var proxy = new Proxy(dataObj, hanlder1);
+
+input.addEventListener('input', function(e) {
+    console.log(e.target.value)
+    proxy.name = e.target.value;
+    console.log(dataObj)
+}, false)
+
+
+var handler2 =  {
+    
+    set: function(target, prop, value) {
+        if(prop == 'name') {
+            target[prop] = value
+            text.value = value
+            input.value = value
+        }
+    }
+}
+
+var proxy = new Proxy(dataObj, handler2);
+
+
+input.addEventListener('input', function(e) {
+    proxy.name = e.target.value;
+}, false)
+
+</script>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>双向数据绑定</title>
+</head>
+<body>
+    <h1 id="name">{{name}}</h1>
+</body>
+</html>
+<script src="mvvm.js"></script>
+<script>
+    var ele = document.getElementById('name')
+    var selfVue = new SelfVue({
+        name: 'hello world'
+    }, ele, 'name');
+
+    window.setTimeout(function() {
+        selfVue.data.name = 'zhangrui'
+    }, 1000)
+</script>

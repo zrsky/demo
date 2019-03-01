@@ -63,4 +63,73 @@
         }
         addEvent(elem, type, handler);
     }
+
+    var cost = (function() {
+        var args = [];
+
+        return function() {
+            if(arguments.length === 0) {
+                var money = 0;
+                for(var i = 0; i < args.length; i++) {
+                    money += args[i];
+                }
+                return money;
+            }else{
+                [].push.apply(args, arguments)
+            }
+        }
+    })()
+
+    function aaa() {
+        var args = [];
+        [].push.apply(args, arguments)
+        console.log(args)
+    }
+    aaa(1,2)
+
+
+    var throttle = function(fn, interval) {
+        var firstTime = true,
+            timer,
+            __self = fn;
+            
+
+            return function() {
+                var args = arguments,
+                __me = this;
+                if(firstTime) {
+                    __self.apply(__me, arguments);
+                    return firstTime = false;
+                }
+
+                if(timer) {
+                    return false;
+                }
+
+                timer = setTimeout(function() {
+                    clearTimeout(timer);
+                    timer = null;
+                    __self.apply(__me, arguments);
+                }, interval || 500)
+            }
+    }
+
+    window.onresize = throttle(function() {
+        console.log(1)
+    })
+
+
+    var addEvent = function(ele, type, handler) {
+        if(window.addEventListener) {
+            addEvent = function(ele, type, handler) {
+                ele.addEventListener(type, handler, false)
+            }
+        }else if(window.attachEvent) {
+            addEvent = function(ele, type, handler) {
+                ele.attachEvent('on' + type, handler)
+            }
+        }
+
+        addEvent(ele, type, handler);
+    }
 </script>

@@ -44,4 +44,34 @@ var val = jQuery.each(arr, function(i, val) {
 })
 console.log(val)
 
+async function demo() {
+	var name = 'zhangrui'
+	console.log(name)
+	
+	return name
+}
+
+console.log(demo())
+demo().then((data) => {
+	console.log(data)
+})
+
+
+var arr = {
+	0: 'sd',
+	1: 24,
+	length: 2
+}
+
+arr = Array.from(arr)
+console.log(arr)
+
+for(i of arr) {
+	console.log(i)
+}
+var arr = [[1,2,3,8],[2,5,1,0]];
+arr = Array.from(new Set(arr.flat(Infinity))).sort((a,b) => {
+	return a-b
+})
+console.log(arr)
 </script>

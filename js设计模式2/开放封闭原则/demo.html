@@ -107,4 +107,21 @@ console.log(b)
 
 
 
+var arrayMap = function(ary, callback) {
+    var length = ary.length,
+        value,
+        ret = [];
+    for(var i = 0; i < length; i++) {
+        value = callback(i, ary[i])
+        ret.push(value);
+    }
+    return ret;
+}
+
+var c = arrayMap([1,2,3], function(i, item) {
+    return item * 2
+})
+
+console.log(c)
+
 </script>

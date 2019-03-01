@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>don</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    function addClass(el, className) {
+        if(hasClass(el.className)) {
+            return;
+        }
+        let newClass = el.className.split(' ')
+        newClass.push(className);
+        el.className = newClass.join(' ');
+    }
+
+    function hasClass(el, className) {
+        var regExp = new RegExp('(^|\\s)' + className + '(\\s|$)');
+        return regExp.test(el.className);
+    }
+
+    function removeClass(el, className) {
+        if(hasClass(el, className)) {
+            let newClass = el.className.split(' ');
+            newClass.forEach((item, i)=>{
+                if(item == className.trim()) {
+                    newClass.split(i, 1);
+                }
+            })
+            el.className = newClass.join(' ');
+        }
+    }
+
+</script>
